@@ -2,7 +2,6 @@
 <html>
 <head>
     <link rel="stylesheet" href="quizpages.css">
-    <title>Brain Teasers Quiz</title>
 </head>
 <body>
     <img src='hat.jpg' class="image">
@@ -26,58 +25,63 @@
                 </ul>
             </td>
             <td id="quiz">
-                <script>
-                    const questions = [
-                        'What is so fragile that saying its name breaks it?',
-                        'I am tall when I am young, and I am short when I am old, what am I?',
-                        'What can travel around the world while staying in a corner?',
-                        'What can run but not walk, has a mouth but never talks, has a head but never weeps, has a bed but never sleeps?',  
-                        'Where can you find roads without cars, forests without trees, and cities without houses (without people)?',
-                        'What loses its head in the morning and gets it back at night?',
-                        'How can you throw a ball as hard as you can and have it come back to you, even if it does not bounce off anything? There is nothing attached to it, and no one else catches or throws it back to you.', 
-                        'Feed me and I live, yet give me water and I die.',
-                        'With pointed fangs I sit and wait; With piercing force I crunch out fate; Grabbing victims, proclaiming might; Physically joining with a single bite. What am I?', 
-                        'A farmer has 17 sheep and all but 9 die. How many are left?',
-                        'What comes once in a minute, twice in a moment, but never in a thousand years?',
-                        'What has six faces, but does not wear makeup, has twenty-one eyes, but cannot see? What is it?',
-                        'What five-letter word becomes shorter when you add two letters to it?',
-                        'What can you hear but not touch or see and yet control?',
-                        'Imagine you are in a room that is filling with water. There are no windows or doors. How do you get out?'
-                    ];
-                    
-                    const answers = [
-                        'Silence', 'Candle', 'Postage stamp', 'River', 'Map', 'Pillow',
-                        'Throw ball up', 'Fire', 'Stapler', 'Nine', 'M', 'Dice',
-                        'Short', 'Your voice', 'Stop imagining'
-                    ];
-                    
-                    let display = "";
-                    let chosenQuestions = [];
-
-                    for (let i = 0; i < 5; i++) {
-                        let x = Math.floor(Math.random() * 15);
-                        while (chosenQuestions.includes(x)) {
-                            x = Math.floor(Math.random() * 15);
+                <form id="quiz-form">
+                    <script>
+                        const que = [
+                            'What is so fragile that saying its name breaks it?',
+                            'I am tall when I am young, and I am short when I am old, what am I?',
+                            'What can travel around the world while staying in a corner?',
+                            'What can run but not walk, has a mouth but never talks, has a head but never weeps, has a bed but never sleeps?',  
+                            'Where can you find roads without cars, forests without trees, and cities without houses (without people)?',
+                            'What loses its head in the morning and gets it back at night?',
+                            'How can you throw a ball as hard as you can and have it come back to you, even if it does not bounce off anything? There is nothing attached to it, and no one else catches or throws it back to you.', 
+                            'Feed me and I live, yet give me a water and I die.',
+                            'With pointed fangs I sit and wait; With piercing force I crunch out fate; Grabbing victims, proclaiming might; Physically joining with a single bite. What am I?', 
+                            'A farmer has 17 sheep and all but 9 die. How many are left?',
+                            'What comes once in a minute, twice in a moment, but never in a thousand years?',
+                            'What has six faces, but does not wear makeup, has twenty-one eyes, but cannot see? What is it?',
+                            'What five-letter word becomes shorter when you add two letters to it?',
+                            'What can you hear but not touch or see and yet control?',
+                            'Imagine you are in a room that is filling with water. There are no windows or doors. How do you get out?'
+                        ];
+                        const ans = [
+                            'Silence', 'Candle', 'Postage Stamp', 'River', 'Map', 'Pillow',
+                            'Throw Ball Straight Up', 'Fire', 'Stapler', 'Nine', 'Letter-M', 'Dice', 'Short',
+                            'Your Voice', 'Stop Imagining'
+                        ];
+                        let selectedQuestions = [];
+                        for (let i = 0; i < 5; i++) {
+                            const index = Math.floor(Math.random() * que.length);
+                            selectedQuestions.push({question: que[index], answer: ans[index]});
+                            que.splice(index, 1);
+                            ans.splice(index, 1);
                         }
-                        chosenQuestions.push(x);
-                        document.write((i+1) + '. ' + questions[x] + '<br>');
-                        display = display.concat((i+1) + '. ' + answers[x] + '<br>');
-                    }
-
-                    function showAnswers() {
-                        let newdiv = document.createElement('p');
-                        newdiv.innerHTML = display;
-                        document.getElementById('quiz').appendChild(newdiv);
+                        selectedQuestions.forEach((item, i) => {
+                            document.write('<p>' + (i + 1) + '. ' + item.question + '</p>');
+                            document.write('<input type="text" id="answer' + i + '" name="answer' + i + '"><br>');
+                        });
+                    </script>
+                    <button type="button" onclick="checkAnswers()">Submit</button>
+                </form>
+                <div id="result"></div>
+                <script>
+                    function checkAnswers() {
+                        const resultDiv = document.getElementById('result');
+                        let score = 0;
+                        selectedQuestions.forEach((item, i) => {
+                            const userAnswer = document.getElementById('answer' + i).value.trim();
+                            if (userAnswer.toLowerCase() === item.answer.toLowerCase()) {
+                                score++;
+                            }
+                        });
+                        resultDiv.innerHTML = 'Your score is: ' + score + '/5';
                     }
                 </script>
-                <br>
-                Thought a lot about it? Check your answers here.<br>
-                <button onclick="showAnswers()" id="answer">Show Answers</button>
             </td>
         </tr>
     </table>
     <h1 class="footer">
-        Help Us Improve!
+        Help Us Improve!      
         <a href="feedback.html" target="_blank" style="text-decoration: none;">Give your feedback here.</a><br><br>
         OR
         <br>
