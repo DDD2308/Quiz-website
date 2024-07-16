@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="quizpages.css">
+    </head>
+    <body>
+        <img src='hat.jpg' class="image">
+        <h1 class="header">
+            QUIZ WIZARD
+        </h1>
+        <table>
+            <tr>
+                <td style="border-right: solid 1px black">
+                    <ul style="list-style-type: none;">
+                        <li><div id="e1"><a href="home.html" style="text-decoration: red;">Home</a></div></li>
+                            <li><div><a href="sci.html" style="text-decoration: red;">SCIENCE</a></div></li>
+                            <li><div><a href="movies.html" style="text-decoration: red;">POP-STARS AND MOVIES</a></div></li>
+                            <li><div><a href="gk.html" style="text-decoration: red;">GK</a></div></li>
+                            <li><div><a href="disney.html" style="text-decoration: red;">DISNEY</a></div></li>
+                            <li><div><a href="capital.html" style="text-decoration: red;">CAPITAL-COUNTRY</a></div></li>
+                            <li><div><a href="india.html" style="text-decoration: red;">INDIA</a></div></li>
+                            <li><div><a href="sports.html" style="text-decoration: red;">SPORTS</a></div></li>
+                            <li><div><a href="brain.html" style="text-decoration: red;">BRAIN TEASERS</a></div></li>
+                            <li><div><a href="daily.html" style="text-decoration: red;">DAILY QUIZ</a></div></li>
+                    </ul>
+                </td>
+                <td id="quiz">
+                    <script>
+                        const que=['What is so fragile that saying its name breaks it?',
+                        'I am tall when I am young, and I am short when I am old, what am I?',
+                        'What can travel around the world while staying in a corner?',
+                        'What can run but not walk, has a mouth but never talks, has a head but never weeps, has a bed but never sleeps?',  
+                        'Where can you find roads without cars, forests without trees, and cities without houses (without people)?',
+                        'What loses its head in the morning and gets it back at night?',
+                        'How can you throw a ball as hard as you can and have it come back to you, even if it does not bounce off anything? There is nothing attached to it, and no one else catches or throws it back to you.', 
+                        'Feed me and I live, yet give me a water and I die.',
+                        'With pointed fangs I sit and wait; With piercing force I crunch out fate; Grabbing victims, proclaiming might; Physically joining with a single bite. What am I?', 
+                        'A farmer has 17 sheep and all but 9 die. How many are left?',
+                        'What comes once in a minute, twice in a moment, but never in a thousand years?',
+                        'What has six faces, but does not wear makeup, has twenty-one eyes, but cannot see? What is it?',
+                        'What five-letter word becomes shorter when you add two letters to it?',
+                        'What can you hear but not touch or see and yet control?',
+                        'Imagine you are in a room that is filling with water. There are no windows or doors. How do you get out?'
+                        ];
+                        const ans=['Silence', 'Candle','Postage Stamp','River','Map','Pillow',
+                        'Throw Ball Straight Up','Fire','Stapler','Nine','Letter-M','Dice','Short',
+                        'Your Voice','Stop Imagining'];
+                        let display="";
+                        var x;
+                        for (let i = 0; i <5; i++) {
+                            x=Math.floor(Math.random()*15);
+                            document.write((i+1)+'.'+que[x]+'<br>');
+                            display= display.concat(ans[x]+'<br>');
+                        }
+                        function showanswers(){
+                            newdiv = document.createElement('p');
+                            newdiv.innerHTML=display;
+                            document.getElementById('quiz').appendChild(newdiv);
+                        }
+                    </script>
+                    <br>
+                    Thought a Lot About it? Check your answers here.<br>
+                    <button onclick="showanswers()" id="answer">Show Answers</button>
+                </td>
+            </tr>
+        </table>
+        <h1 class="footer">
+            Help Us Improve!      
+            <a href="feedback.html" target="_blank" style="text-decoration: none;">Give your feedback here.
+            </a><br><br>
+            OR
+            <br>
+            <p style="text-decoration: none; font-size: 25px;">
+                Contact Us:  99999 88888<br>
+                Email-ID:  <a href = "mailto:quizwiz@org.ac.in">quizwiz@org.ac.in</a>
+            </p>
+        </h1>
+    </body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="quizpages.css">
+    </head>
+    <body>
+        <img src='hat.jpg' class="image">
+        <h1 class="header">
+            QUIZ WIZARD
+        </h1>
+        <table>
+            <tr>
+                <td style="border-right: solid 1px black">
+                    <ul style="list-style-type: none;">
+                        <li><div id="e1"><a href="home.html" style="text-decoration: red;">Home</a></div></li>
+                        <li><div><a href="sci.html" style="text-decoration: red;">SCIENCE</a></div></li>
+                        <li><div><a href="movies.html" style="text-decoration: red;">POP-STARS AND MOVIES</a></div></li>
+                        <li><div><a href="gk.html" style="text-decoration: red;">GK</a></div></li>
+                        <li><div><a href="disney.html" style="text-decoration: red;">DISNEY</a></div></li>
+                        <li><div><a href="capital.html" style="text-decoration: red;">CAPITAL-COUNTRY</a></div></li>
+                        <li><div><a href="india.html" style="text-decoration: red;">INDIA</a></div></li>
+                        <li><div><a href="sports.html" style="text-decoration: red;">SPORTS</a></div></li>
+                        <li><div><a href="brain.html" style="text-decoration: red;">BRAIN TEASERS</a></div></li>
+                        <li><div><a href="daily.html" style="text-decoration: red;">DAILY QUIZ</a></div></li>
+                    </ul>
+                </td>
+                <td id="quiz">
+                    <script>
+                        const que=['The newly constructed Maharishi Valmiki International Airport is located in?<br>(a)Varanasi  (b)Ayodhya  (c)Vrindavan  (d)Gorakhpur',
+                        'India made its first-ever payment in rupees for crude oil purchased from?<br>(a)UAE  (b)Qatar  (c)Saudi Arab  (d)Russia',
+                        'Which country had recently asked India to withdraw its military personnel from its territory?<br>(a)Mauritius  (b)Sri Lanka  (c)Maldives  (d)Canada',
+                        'National Consumer Rights Day in India is observed on.<br>(a)24th December  (b)28th December (c)4th January  (d)8th January',
+                        'In the \'best-performing states\' category in Swachh Survekshan Awards 2023 which state bagged the top spot?<br>(a)Maharashtra  (b)Madhya Pradesh  (c)Karnataka  (d)Uttar Pradesh',
+                        'Who becomes the first Indian Woman Arjuna Awardee for Equestrian Sports<br>(a)Sudipti Hajela  (b)Divyakriti Singh  (c)Sheetal Devi  (d)Parul Chaudhary',
+                        'Who has been awarded with the Bharat Ratna Award in 2024<br>(a)Karpoori Thakur  (b)Rammanohar Lohiya  (c)V.P.Singh  (d)Kanshi Ram',
+                        'Which one becomes the fifth country to land on the Moon successfully<br>(a)India  (b)Japan  (c)Germany  (d)South Korea',
+                        'What is the name of the telescope recently launched to study early galaxies?<br>(a) James Webb Space Telescope  (b) Hubble Space Telescope  (c) Kepler Space Telescope  (d) Spitzer Space Telescope',
+                        'What is the largest supercomputer in the world as of January 2024?<br>(a) Frontier  (b) Fugaku  (c) Summit  (d) Sierra',
+                        'Bag-Less School initiative, recently seen in the news, is introduced by which state?<br>(a) Uttar Pradesh  (b) Madhya Pradesh  (c) Rajasthan  (d) Bihar',
+                        'Recently, which album won the \'Best Global Music Album\' award at theGrammy Awards 2024? <br>(a) This Moment  (b) Endless Summer Vacation  (c) The Record  (d) World Music Radio',
+                        'What is the primary objective of SAMARTH scheme, recently seen in the news?<br>(a) Providing scholarship to rural students for higher education<br>(b) Providing assistance to farmers<br>(c) Providing assistance to the MSMEs<br>(d) providing comprehensive medical care to children',
+                        'Which state became the first Indian state to buy land in Kashmir?<br>(a)Gujarat  (b)Goa  (c) Maharashtra (d)Karnataka',
+                        'Tamas Sulyok, who was seen in the news, became a new president of which country?<br>(a)Poland  (b)Hundgary (c)Italy  (d)France'
+                        ];
+                        const ans=['Ayodhya','UAE','Maldives','24th December','Maharashtra','Divyakriti Singh','Karpoori Thakur',
+                        'Japan','James Webb Space Telescope','Frontier','Madhya Pradesh','This Moment',
+                        'Providing assistance to MSMEs','Maharashtra','Hungary'];
+                        let display="";
+                        var x;
+                        for (let i = 0; i <5; i++) {
+                            x=Math.floor(Math.random()*15);
+                            document.write((i+1)+'.'+que[x]+'<br>');
+                            display= display.concat(ans[x]+'<br>');
+                        }
+                        function showanswers(){
+                            newdiv = document.createElement('p');
+                            newdiv.innerHTML=display;
+                            document.getElementById('quiz').appendChild(newdiv);
+                        }
+                    </script>
+                    <br>
+                    Thought a Lot About it? Check your answers here.<br>
+                    <button onclick="showanswers()" id="answer">Show Answers</button>
+                </td>
+            </tr>
+        </table>
+        <h1 class="footer">
+            Help Us Improve!      
+            <a href="feedback.html" target="_blank" style="text-decoration: none;">Give your feedback here.
+            </a><br><br>
+            OR
+            <br>
+            <p style="text-decoration: none; font-size: 25px;">
+                Contact Us:  99999 88888<br>
+                Email-ID:  <a href = "mailto:quizwiz@org.ac.in">quizwiz@org.ac.in</a>
+            </p>
+        </h1>
+    </body>
+</html>

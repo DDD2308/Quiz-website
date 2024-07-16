@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="quizpages.css">
+    </head>
+    <body>
+        <img src='hat.jpg' class="image">
+        <h1 class="header">
+            QUIZ WIZARD
+        </h1>
+        <table>
+            <tr>
+                <td style="border-right: solid 1px black">
+                    <ul style="list-style-type: none;">
+                        <li><div id="e1"><a href="home.html" style="text-decoration: red;">Home</a></div></li>
+                            <li><div><a href="sci.html" style="text-decoration: red;">SCIENCE</a></div></li>
+                            <li><div><a href="movies.html" style="text-decoration: red;">POP-STARS AND MOVIES</a></div></li>
+                            <li><div><a href="gk.html" style="text-decoration: red;">GK</a></div></li>
+                            <li><div><a href="disney.html" style="text-decoration: red;">DISNEY</a></div></li>
+                            <li><div><a href="capital.html" style="text-decoration: red;">CAPITAL-COUNTRY</a></div></li>
+                            <li><div><a href="india.html" style="text-decoration: red;">INDIA</a></div></li>
+                            <li><div><a href="sports.html" style="text-decoration: red;">SPORTS</a></div></li>
+                            <li><div><a href="brain.html" style="text-decoration: red;">BRAIN TEASERS</a></div></li>
+                            <li><div><a href="daily.html" style="text-decoration: red;">DAILY QUIZ</a></div></li>
+                    </ul>
+                </td>
+                <td id="quiz">
+                    <script>
+                        const que=['Who was the first Indian bowler to take all ten wickets in an inning?<br>(a)Anil Kumble (b) Javagal Srinath  (c) Harbhajan Singh (d) Kapil Dev',
+                        'Which Hindu god is believed to have 6 heads?<br>(a) Lord Shiva  (b) Lord Kartikey  (c) Lord Ganesha  (d) Lord Krishna',
+                        'Who was the first Prime Minister of USA?<br>(a) Bill Clinton  (b) Abraham Lincoln  (c) Peyton Randolph  (d) James Monroe',
+                        'Entomology is the science that studies<br>(a) Human behavior  (b) Population of world  (c) Minerals  (d) Insects',
+                        'Which of the following countries isn\'t a part of Gulf Cooperation?<br>(a) Saudi Arabia  (b) Bahrain  (c) Kuwait  (d) Iraq',
+                        'In which year United Nations was formed?<br>(a) 1934  (b) 1954  (c) 1947  (d) 1945',
+                        'In which series did Bodyline bowling become controversial?<br>(a) Ashes,1932  (b) Border-Gavaskar Trophy,2007-08  (c) Pataudi Trophy,2011  (d)Freedom Trophy,1992',
+                        'Where is the International Court of Justice located?<br>(a) Hague  (b) Geneva  (c) New York  (d) Paris',
+                        'Where are 2024 Olympics to be held?<br>(a) London  (b) Paris  (c) Los Angeles  (d) Tokyo',
+                        'As per Forest Act, cultivation of which of the following is a non-forest activity?<br>(a) Mulberry  (b) Rubber  (c) Tea  (d) All of the above',
+                        'Who was the queen of England when Royal Charter was granted to East India Company?<br>(a) Queen Elizabeth 1  (b) Queen Victoria  (c) Queen Anne  (d) Queen Mary 2',
+                        'Who is the first Indian wrestler to win a medal at Asian Games?<br>(a) Babita Kumari  (b) Vinesh Phogat  (c) Sakshi Malik  (d) Kavita Devi',
+                        'Name the Indian Tennis Player who turned to Hollywood Filmmaker.<br>(a) Leander Peas  (b) Mahesh Bhupathi  (c) Vijay Amritraj  (d) Ashok Amritraj',
+                        'Who is the writer of the book \'House of Cards\'?<br>(a) Sudha Murthy  (b) Chetan Bhagat  (c) Arundhati Roy  (d) Shashi Deshpande',
+                        'Which Indian state has most airports?<br>(a) Maharashtra  (b) Gujarat  (c) Madhya Pradesh  (d) Rajasthan'
+                        ];
+                        const ans=['Anil Kumble','Lord Kartikeya','Peyton Randolph','Insects','Iraq','1945','Ashes,1932',
+                        'Hague','Paris','All of the above','Queen Elizabeth 1','Vinesh Phogat','Ashok Amritraj',
+                        'Sudha Murthy','Gujarat'];
+                        let display="";
+                        var x;
+                        for (let i = 0; i <5; i++) {
+                            x=Math.floor(Math.random()*15);
+                            document.write((i+1)+'.'+que[x]+'<br>');
+                            display= display.concat(ans[x]+'<br>');
+                        }
+                        function showanswers(){
+                            newdiv = document.createElement('p');
+                            newdiv.innerHTML=display;
+                            document.getElementById('quiz').appendChild(newdiv);
+                        }
+                    </script>
+                    <br>
+                    Thought a Lot About it? Check your answers here.<br>
+                    <button onclick="showanswers()" id="answer">Show Answers</button>
+                </td>
+            </tr>
+        </table>
+        <h1 class="footer">
+            Help Us Improve!      
+            <a href="feedback.html" target="_blank" style="text-decoration: none;">Give your feedback here.
+            </a><br><br>
+            OR
+            <br>
+            <p style="text-decoration: none; font-size: 25px;">
+                Contact Us:  99999 88888<br>
+                Email-ID:  <a href = "mailto:quizwiz@org.ac.in">quizwiz@org.ac.in</a>
+            </p>
+        </h1>
+    </body>
+</html>

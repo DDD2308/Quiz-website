@@ -1,0 +1,89 @@
+body{
+    margin:2px;
+    background-color: white;
+}
+.header{
+    background-color:#87CEEB;
+    color:#EB4B65;
+    font-family:fantasy ;
+    font-size: 70px;
+    margin-top: 0px;
+    margin-left: 0px;
+    padding-left: auto;
+    text-align: right;
+    padding-right: 125px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+.image{
+    height: 130px;
+    width:120px;
+    float: left;
+    margin-left: 10px;
+}
+.image:hover{
+    animation-name:logoanime;
+    animation-duration:2s;
+    animation-iteration-count: 2;
+}
+@keyframes logoanime{
+    50%{
+        margin-top:0px;
+        margin-left:680px;
+    }
+}
+div{
+    font-size: 20px;
+    margin-right: auto;
+    width: 170px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 10px;
+    list-style-type: none;
+}
+div:hover{
+    background-color: #E6E6FA;
+    color:aliceblue;
+}
+.topicpages{
+    float:left;
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    padding-top: 35px;
+    padding-bottom: 35px;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 70px;
+    width:420px;
+    font-size: 30px;
+    display: inline-flex;
+    text-align: center;
+    border-radius: 20px;
+    border:solid #E6E6FA 5px;
+    background-color: white;
+    color:blue;
+}
+#e3{
+    clear:left;
+}
+.topic{
+    height: 70px;
+    width: 70px;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+.footer{
+    background-color:#87CEEB;
+    color:black;
+    font-family:Times New Roman;
+    font-size: 30px;
+    margin-top: 0px;
+    padding-left: auto;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    margin-left: 0px;
+    margin-bottom: 0px;
+}

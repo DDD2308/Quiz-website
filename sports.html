@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="quizpages.css">
+    </head>
+    <body>
+        <img src='hat.jpg' class="image">
+        <h1 class="header">
+            QUIZ WIZARD
+        </h1>
+        <table>
+            <tr>
+                <td style="border-right: solid 1px black">
+                    <ul style="list-style-type: none;">
+                            <li><div id="e1"><a href="home.html" style="text-decoration: red;">Home</a></div></li>
+                            <li><div><a href="sci.html" style="text-decoration: red;">SCIENCE</a></div></li>
+                            <li><div><a href="movies.html" style="text-decoration: red;">POP-STARS AND MOVIES</a></div></li>
+                            <li><div><a href="gk.html" style="text-decoration: red;">GK</a></div></li>
+                            <li><div><a href="disney.html" style="text-decoration: red;">DISNEY</a></div></li>
+                            <li><div><a href="capital.html" style="text-decoration: red;">CAPITAL-COUNTRY</a></div></li>
+                            <li><div><a href="india.html" style="text-decoration: red;">INDIA</a></div></li>
+                            <li><div><a href="sports.html" style="text-decoration: red;">SPORTS</a></div></li>
+                            <li><div><a href="brain.html" style="text-decoration: red;">BRAIN TEASERS</a></div></li>
+                            <li><div><a href="daily.html" style="text-decoration: red;">DAILY QUIZ</a></div></li>
+                    </ul>
+                </td>
+                <td id="quiz">
+                    <script>
+                        const que=["Who is the only athlete to win Olympic gold medals in both the 100m and 400m? <br>(a)Michael Johnson  (b)Usain Bolt  (c)Carl Lewis",
+                        "Which country won the first Cricket World Cup?<br>(a)West-Indies  (b)England  (c)Australia  (d)Pakistan",
+                        "Who holds the most Grand-Slam titles in Open Era?<br>(a)Novak Djokovic  (b)Roger Federer  (c)Rafael Nadal  (d)Margaret Court",
+                        "Headquarters of International Olympic Committee<br>(a)Lausanne  (b)Zurich  (c)Bern  (d)Geneva",
+                        "Who won the Men\'s Singles title at the US Open in 2021?<br>(a) Novak Djokovic  (c)Rafael Nadal  (c)Daniil Medvedev  (d)Carlos Alcaraz",
+                        "Who won Ballon d\'Or award in 2021?<br>(a)Lionel Messi  (b)Cristiano Ronaldo  (c)Kylien Mbappe  (d) Mohammad Salah",
+                        "Who won the Men\'s Singles title in Australia Open 2022?<br>(a) Novak Djokovic  (c)Rafael Nadal  (c)Daniil Medvedev  (d)Carlos Alcaraz",
+                        "Who won the FIFA World Cup in 2018?<br>(a)France  (b)Germany  (c)Brazil  (d)Argentina",
+                        "Who won Super Bowl 2023?<br>(a)Kansas City Chiefs  (b)Tampa Bay Buccaneers  (c)New England Patriots  (d)Los Angeles Rams",
+                        "What country has won the most soccer World Cup championships?<br>(a)France  (b)Germany  (c)Brazil  (d)Argentina",
+                        "In what year women\'s boxing become Olympic Sport?<br>(a)2000  (b)2004  (c)2008  (d)2012",
+                        "What country\'s national cricket team is known as the Men in Blue?<br>(a)India  (b)Australia  (c)England  (d)New Zealand",
+                        "When was the first cricket T20 World Cup played?<br>(a)2006  (b)2007  (c)2008  (d)2009",
+                        "What is a batsman getting out on zero in cricket called?<br>(a)Duck  (b)Turkey  (c)Chicken  (d)Cuckoo",
+                        "Who was the leading run-scorer in year 2023 in cricket?<br>(a)Shubman Gill  (b)Virat Kohli  (c)Daryl Mitchell  (d)Rohit Sharma",
+                        ];
+                        const ans=["Michael Johnson","West Indies","Margaret Court","Lausanne","Daniil Medvedev","Lionel Messi","Rafael Nadal",
+                        "France","Kansas City Chiefs","Brazil","2004","India","2007","Duck","Shubman Gill"];
+                        let display="";
+                        var x;
+                        for (let i = 0; i <5; i++) {
+                            x=Math.floor(Math.random()*15);
+                            document.write((i+1)+'.'+que[x]+'<br>');
+                            display= display.concat(ans[x]+'<br>');
+                        }
+                        function showanswers(){
+                            newdiv = document.createElement('p');
+                            newdiv.innerHTML=display;
+                            document.getElementById('quiz').appendChild(newdiv);
+                        }
+                    </script>
+                    <br>
+                    Thought a Lot About it? Check your answers here.<br>
+                    <button onclick="showanswers()" id="answer">Show Answers</button>
+                </td>
+            </tr>
+        </table>
+        <h1 class="footer">
+            Help Us Improve!      
+            <a href="feedback.html" target="_blank" style="text-decoration: none;">Give your feedback here.
+            </a><br><br>
+            OR
+            <br>
+            <p style="text-decoration: none; font-size: 25px;">
+                Contact Us:  99999 88888<br>
+                Email-ID:  <a href = "mailto:quizwiz@org.ac.in">quizwiz@org.ac.in</a>
+            </p>
+        </h1>
+    </body>
+</html>

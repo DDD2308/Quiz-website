@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>feedbackpage</title>
+        <link rel="stylesheet" href="feedbackpage.css">
+    </head>
+    <body style="font-size: 20px;">
+        <img src='hat.jpg' class="image">
+        <h1 class="header">
+            QUIZ WIZARD 
+            <a href="home.html"> <img src="home.jpg" height="70px" width="70px"> </a>
+        </h1>
+            <h2 id="title">FEEDBACK FORM</h2>
+            <fieldset class="fb" >
+                <form>
+                    How do you rate your experience?<br>
+                    <input type="radio" name="rate" value="1">1<br>
+                    <input type="radio" name="rate" value="2">2<br>
+                    <input type="radio" name="rate" value="3">3<br>
+                    <input type="radio" name="rate" value="4">4<br>
+                    <input type="radio" name="rate" value="5">5<br>
+                    Rate our questions:<br>
+                    <input type="radio" name="que" value="1">1<br>
+                    <input type="radio" name="que" value="2">2<br>
+                    <input type="radio" name="que" value="3">3<br>
+                    <input type="radio" name="que" value="4">4<br>
+                    <input type="radio" name="que" value="5">5<br>
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td><input type="text" id="name" value=" "></td>
+                        </tr>
+                        <tr>
+                            <td>Email-ID:</td>
+                            <td><input type="text" id="email"></td>
+                        </tr>
+                        <tr>
+                            <td>Contact No:</td>
+                            <td><input type="text" id="contact"></td>
+                        </tr>
+                        <tr>
+                            <td>Comments:</td>
+                            <td><input type="textarea" value="--"></td>
+                        </tr>
+                    </table>
+                    <input type="submit" onclick="formvalidate()"
+                </form> 
+                <script>
+                    function formvalidate(){
+                        var name=document.getElementById('name');
+                        if(name.value==" "){
+                            alert('Enter name');
+                            return;
+                        }
+                        var input=document.getElementById('email');
+                        var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+                        if (input.value.match(validRegex)) {
+                        } else {
+                            alert("Invalid email address!");
+                            return;
+                        }
+                        var con=document.getElementById("contact");
+                        var validcon=/^\d{10}$/;
+                        if(con.value.match(validcon)){
+                        }else{
+                            alert("Invalid contact number");
+                            return;
+                        }
+                        var rate=document.getElementsByName('rate');
+                        if(rate[0].checked){
+                        }else if(rate[1].checked){
+                        }else if(rate[2].checked){
+                        }else if(rate[3].checked){
+                        }else if(rate[4].checked){
+                        }else{
+                            alert('Rate Us!');
+                            return;
+                        }
+                        var que=document.getElementsByName('que');
+                        if(que[0].checked){
+                        }else if(que[1].checked){
+                        }else if(que[2].checked){
+                        }else if(que[3].checked){
+                        }else if(que[4].checked){
+                        }else{
+                            alert('Rate Us!');
+                            return;
+                        }
+                        alert('Thank You For Your Feedback. You can close the page now.');
+                        return;
+                    }
+                </script>
+            </fieldset>
+        <p id="demo"></p>
+        <h1 class="footer">
+            <p style="text-decoration: none; font-size: 25px;">
+                Contact Us:  99999 88888<br>
+                Email-ID:  <a href = "quizwiz@org.ac.in">quizwiz@org.ac.in</a>
+            </p>
+        </h1>
+    </body>
+</html>

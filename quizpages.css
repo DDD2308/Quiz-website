@@ -1,0 +1,73 @@
+body{
+    margin:2px;
+    background-color: #E6E6FA;
+}
+.header{
+    background-color:#87CEEB;
+    color:#EB4B65;
+    font-family:fantasy ;
+    font-size: 70px;
+    margin-top: 0px;
+    padding-left: auto;
+    text-align: right;
+    padding-right: 125px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+.image{
+    height: 130px;
+    float: left;
+    margin-left: 10px;
+}
+div{
+    font-size: 20px;
+    background-color: #E6E6FA;
+    color:blue;
+    margin-right: auto;
+    width: 170px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 10px;
+    list-style-type: none;
+}
+div:hover{
+    background-color:#87CEEB;
+    color:black;
+}
+.div2{
+    background-color: black;
+}
+.footer{
+    background-color:#87CEEB;
+    color:black;
+    font-family:Times New Roman;
+    font-size: 30px;
+    margin-top: 0px;
+    padding-left: auto;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+#quiz{
+    font-size: 25px;
+    font-family: Times New Roman;
+    padding-left:20px;
+    text-align: justify;
+    margin-left: 20px;
+}
+#menu{
+    border-right: solid 1px black; background-color: #E6E6FA;
+}
+#answer{
+    background-color: #87CEEB;
+    border: none;
+    color:ghostwhite;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration:solid;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor:pointer;
+    font-family: 'Times New Roman';
+}

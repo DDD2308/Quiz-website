@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="quizpages.css">
+    </head>
+    <body>
+        <img src='hat.jpg' class="image">
+        <h1 class="header">
+            QUIZ WIZARD
+        </h1>
+        <table>
+            <tr>
+                <td style="border-right: solid 1px black">
+                    <ul style="list-style-type: none;">
+                        <li><div id="e1"><a href="home.html" style="text-decoration: red;">Home</a></div></li>
+                            <li><div><a href="sci.html" style="text-decoration: red;">SCIENCE</a></div></li>
+                            <li><div><a href="movies.html" style="text-decoration: red;">POP-STARS AND MOVIES</a></div></li>
+                            <li><div><a href="gk.html" style="text-decoration: red;">GK</a></div></li>
+                            <li><div><a href="disney.html" style="text-decoration: red;">DISNEY</a></div></li>
+                            <li><div><a href="capital.html" style="text-decoration: red;">CAPITAL-COUNTRY</a></div></li>
+                            <li><div><a href="india.html" style="text-decoration: red;">INDIA</a></div></li>
+                            <li><div><a href="sports.html" style="text-decoration: red;">SPORTS</a></div></li>
+                            <li><div><a href="brain.html" style="text-decoration: red;">BRAIN TEASERS</a></div></li>
+                            <li><div><a href="daily.html" style="text-decoration: red;">DAILY QUIZ</a></div></li>
+                    </ul>
+                </td>
+                <td id="quiz">
+                    <script>
+                        const que=['Minsk<br>(a)Belarus  (b)Gambia  (c)India',
+                        'Nicosia<br>(a)Georgia  (b)Cyprus  (c)Slovakia    ',
+                        'Tbilisi<br>(a)Hungary  (b)Georgia  (c)Morocco   ' ,
+                        'Capital of Australia<br>(a)Sydney  (b)Melbourne  (c)Canberra' ,
+                        'Kuala Lumpur<br>(a)Malaysia  (b)Philippines  (c)Tonga',
+                        'Stockholm<br>(a)Sweden  (b)Cyprus  (c)Denmark',  
+                        'Baku<br>(a)Iraq  (b)Iran  (c)Azerbaijan',
+                        'Prague<br>(a)Denmark  (b)Czech Republic  (c)Austria',
+                        'Budapest<br>(a)Hungary  (b)Georgia  (c)Siberia   ',
+                        'Buenos Aires<br>(a)Chile (b)Argentina (c)Brazil',
+                        'Paris<br>(a)Italy  (b)UK  (c)France',
+                        'Athens<br>(a)Greece  (b)UK  (c)France',
+                        'Bucharest<br>(a)Albania  (b)Romania  (c)Hungary',
+                        'Copenhagen<br>(a)Denmark  (b)Czech Republic  (c)Austria',
+                        'Vienna<br>(a)Denmark  (b)Czech Republic  (c)Austria'
+                        ];
+                        const ans=['Belarus','Cyprus','Georgia','Canberra','Malaysia','Sweden','Azerbaijan',
+                        'Czech Republic','Hungary','Argentina','France','Greece','Romania','Denmark','Austria'];
+                        let display="";
+                        var x;
+                        for (let i = 0; i <5; i++) {
+                            x=Math.floor(Math.random()*15);
+                            document.write((i+1)+'.'+que[x]+'<br>');
+                            display= display.concat(ans[x]+'<br>');
+                        }
+                        function showanswers(){
+                            newdiv = document.createElement('p');
+                            newdiv.innerHTML=display;
+                            document.getElementById('quiz').appendChild(newdiv);
+                        }
+
+                    </script>
+                    <br>
+                    Thought a Lot About it? Check your answers here.<br>
+                    <button onclick="showanswers()" id="answer">Show Answers</button>
+                </td>
+            </tr>
+        </table>
+        <h1 class="footer">
+            Help Us Improve!      
+            <a href="feedback.html" target="_blank" style="text-decoration: none;">Give your feedback here.
+            </a><br><br>
+            OR
+            <br>
+            <p style="text-decoration: none; font-size: 25px;">
+                Contact Us:  99999 88888<br>
+                Email-ID:  <a href = "mailto:quizwiz@org.ac.in">quizwiz@org.ac.in</a>
+            </p>
+        </h1>
+    </body>
+</html>

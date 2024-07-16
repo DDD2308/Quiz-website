@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="quizpages.css">
+    </head>
+    <body>
+        <img src='hat.jpg' class="image">
+        <h1 class="header">
+            QUIZ WIZARD
+        </h1>
+        <table>
+            <tr>
+                <td id="menu">
+                    <ul style="list-style-type: none;">
+                        <li><div id="e1"><a href="home.html" style="text-decoration: red;">Home</a></div></li>
+                        <li><div><a href="sci.html" style="text-decoration: red;">SCIENCE</a></div></li>
+                        <li><div><a href="movies.html" style="text-decoration: red;">POP-STARS AND MOVIES</a></div></li>
+                        <li><div><a href="gk.html" style="text-decoration: red;">GK</a></div></li>
+                        <li><div><a href="disney.html" style="text-decoration: red;">DISNEY</a></div></li>
+                        <li><div><a href="capital.html" style="text-decoration: red;">CAPITAL-COUNTRY</a></div></li>
+                        <li><div><a href="india.html" style="text-decoration: red;">INDIA</a></div></li>
+                        <li><div><a href="sports.html" style="text-decoration: red;">SPORTS</a></div></li>
+                        <li><div><a href="brain.html" style="text-decoration: red;">BRAIN TEASERS</a></div></li>
+                        <li><div><a href="daily.html" style="text-decoration: red;">DAILY QUIZ</a></div></li>
+                    </ul>
+                </td>
+                <td id="quiz">
+                    <script>
+                        const que=['Who was the first man on Moon? ', 
+                        'Who is the largest land animal?',
+                        'What do vampire bats eat?',
+                        'What is hottest planet in solar system?',
+                        'What is fear of spiders called?' ,
+                        'Bronze is an alloy consisting primarily of which two elements?',
+                        'How many bones do sharks have?',
+                        'What is study of light called?',
+                        'How many legs does spider have?',
+                        'What is rarest blood type?',
+                        'What is the largest internal organ?',
+                        'What are gaps between nerves called?',
+                        'What is the powerhouse of cell?',
+                        'Which is the nearest planet to Sun?',
+                        'What is the thinnest layer of Earth?'];
+                        const ans=['Neil Armstrong','Elephant','Blood','Venus','Arachnophobia','Copper and Tin',
+                        'Zero','Optics','Eight','AB-','Liver','Synapses','Mitochondria','Mercury','Crust'];
+                        let display="";
+                        var x;
+                        for (let i = 0; i <5; i++) {
+                            x=Math.floor(Math.random()*15);
+                            document.write((i+1)+'.'+que[x]+'<br>');
+                            display= display.concat(ans[x]+'<br>');
+                        }
+                        function showanswers(){
+                            newdiv = document.createElement('p');
+                            newdiv.innerHTML=display;
+                            document.getElementById('quiz').appendChild(newdiv);
+                        }
+                        </script>
+                        <br>
+                        Thought a Lot About it? Check your answers here.<br>
+                        <button onclick="showanswers()" id="answer">Show Answers</button>
+                </td>
+            </tr>
+        </table>
+        <h1 class="footer">
+            Help Us Improve!      
+            <a href="feedback.html" target="_blank" style="text-decoration: none;">Give your feedback here.
+            </a><br><br>
+            OR
+            <br>
+            <p style="text-decoration: none; font-size: 25px;">
+                Contact Us:  99999 88888<br>
+                Email-ID:  <a href = "mailto:quizwiz@org.ac.in">quizwiz@org.ac.in</a>
+            </p>
+        </h1>
+    </body>
+</html>

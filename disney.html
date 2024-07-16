@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="quizpages.css">
+    </head>
+    <body>
+        <img src='hat.jpg' class="image">
+        <h1 class="header">
+            QUIZ WIZARD
+        </h1>
+        <table>
+            <tr>
+                <td style="border-right: solid 1px black">
+                    <ul style="list-style-type: none;">
+                            <li><div id="e1"><a href="home.html" style="text-decoration: red;">Home</a></div></li>
+                            <li><div><a href="sci.html" style="text-decoration: red;">SCIENCE</a></div></li>
+                            <li><div><a href="movies.html" style="text-decoration: red;">POP-STARS AND MOVIES</a></div></li>
+                            <li><div><a href="gk.html" style="text-decoration: red;">GK</a></div></li>
+                            <li><div><a href="disney.html" style="text-decoration: red;">DISNEY</a></div></li>
+                            <li><div><a href="capital.html" style="text-decoration: red;">CAPITAL-COUNTRY</a></div></li>
+                            <li><div><a href="india.html" style="text-decoration: red;">INDIA</a></div></li>
+                            <li><div><a href="sports.html" style="text-decoration: red;">SPORTS</a></div></li>
+                            <li><div><a href="brain.html" style="text-decoration: red;">BRAIN TEASERS</a></div></li>
+                            <li><div><a href="daily.html" style="text-decoration: red;">DAILY QUIZ</a></div></li>
+                    </ul>
+                </td>
+                <td id="quiz">
+                    <script>
+                        const que=['How many brothers does Prince Hans of the Southern Isles have in Frozen?<br>(a)6  (b)12  (c)10  (d)8',
+                        'What is the name of Wendy\'s dog in Peter Pan?<br>(a)Nana  (b)Fluffy  (c)Tom  (d)Scooby',
+                        'What is the name of Ariel and Prince Eric\'s daughter?<br>(a)Celeste  (b)Melody  (c)Beatrice  (d)Eugene',
+                        'Which of the following is not one of the seven dwarves?<br>(a)Bashful  (b)Grumpy  (c)Doc  (d)Jumpy',
+                        'Name of Belle\'s father in \'Beauty and Beast\'<br>(a)Timothy  (b)Maurice  (c)Greg (d)Philip',
+                        'Name of Snow White\'s prince<br>(a)Florian  (b) Eric  (c) Greg (d) Philip',
+                        'How long was Genie stuck in the lamp before Aladdin released him?<br>(a)400years  (b)10000years  (c)1000 years  (d)600years',
+                        'Who was the first Disney princess?<br>(a)Ariel  (b)Aurora  (c)Cinderella  (d)Snow White',
+                        'What do Aladdin and his monkey Abu steal from the marketplace when you\'re first introduced to them in the movie?<br>(a)Loaf of bread(b)Apple  (c)Orange  (d)Dates',
+                        'What is the name of Cinderella\'s evil stepsister?<br>(a)Anastasia  (b)Beatrice  (c)Eugenie  (d)Daphine',
+                        'Which famous princess attends Elsa\'s coronation ceremony in Frozen?<br>(a)Rapunzel  (b)Ariel  (c)Mulan  (d)Merida',
+                        'What is the first Pixar movie?<br>(a)Toy Story  (b)A Bug\'s Life  (c)Finding Nemo  (d) Mickey Mouse',
+                        'How many Disney theme parks are there at Walt Disney World?<br>(a)3  (b)4  (c)5  (d)6',
+                        'Which Disney princess has the fewest lines?<br>(a)Tiana  (b)Aurora  (c)Cinderella  (d)Ariel',
+                        'What is the name of the tea cup from \"Beauty and the Beast\"?<br>(a)Chip Potts  (b)Chippy Potts  (c)Candela  (d)Mrs Murphy'
+                        ];
+                        const ans=['12','Nana','Melody','Jumpy','Maurice','Florian','10000 years','Snow White','Loaf of bread',
+                        'Anastasia','Rapunzel','Toy Story','4','Aurora','Chip Potts']
+                        var x;
+                        let display="";
+                        for (let i = 0; i <5; i++) {
+                            x=Math.floor(Math.random()*15);
+                            document.write((i+1)+'.'+que[x]+'<br>');
+                            display= display.concat(ans[x]+'<br>');
+                        }
+                        function showanswers(){
+                            newdiv = document.createElement('p');
+                            newdiv.innerHTML=display;
+                            document.getElementById('quiz').appendChild(newdiv);
+                        }
+                        </script>
+                        <br>
+                        Thought a Lot About it? Check your answers here.<br>
+                        <button onclick="showanswers()" id="answer">Show Answers</button>
+                </td>
+            </tr>
+        </table>
+        <h1 class="footer">
+            Help Us Improve!      
+            <a href="feedback.html" target="_blank" style="text-decoration: none;">Give your feedback here.
+            </a><br><br>
+            OR
+            <br>
+            <p style="text-decoration: none; font-size: 25px;">
+                Contact Us:  99999 88888<br>
+                Email-ID:  <a href = "mailto:quizwiz@org.ac.in">quizwiz@org.ac.in</a>
+            </p>
+        </h1>
+    </body>
+</html>
