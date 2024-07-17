@@ -6,17 +6,7 @@
     <link rel="stylesheet" href="quizpages.css">
     <style>
         .quiz-question {
-            margin-bottom: 20px;
-        }
-        .options label {
-            display: block;
-            cursor: pointer;
-            padding: 5px;
-            border: 1px solid #ccc;
-            margin-bottom: 5px;
-        }
-        .options label:hover {
-            background-color: #f0f0f0;
+            margin-bottom: 10px;
         }
     </style>
 </head>
@@ -40,7 +30,7 @@
                 </ul>
             </td>
             <td id="quiz">
-                <!-- Quiz questions and options will be dynamically generated here -->
+                <!-- Quiz questions will be dynamically generated here -->
             </td>
         </tr>
     </table>
@@ -51,7 +41,7 @@
             <!-- Incorrect answers will be dynamically generated here -->
         </div>
     </div>
-    <button onclick="submitQuiz()" id="submit">Submit Answers</button>
+    <button onclick="showResults()" id="submit">Submit Answers</button>
     <script>
         const questions = [
             { question: "Minsk", options: ["Belarus", "Gambia", "India"], correctAnswer: "Belarus" },
@@ -71,64 +61,42 @@
             { question: "Vienna", options: ["Denmark", "Czech Republic", "Austria"], correctAnswer: "Austria" }
         ];
 
-        let selectedQuestions = [];
-        let userAnswers = {};
-
-        function shuffleArray(array) {
-            for (let i = array.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [array[i], array[j]] = [array[j], array[i]];
-            }
-            return array;
-        }
-
         function buildQuiz() {
             const quizContainer = document.getElementById('quiz');
-            quizContainer.innerHTML = ''; // Clear previous quiz content
-            selectedQuestions = shuffleArray([...questions]).slice(0, 5); // Shuffle and pick 5 random questions
-            selectedQuestions.forEach((question, index) => {
-                const questionHTML = `
+            questions.forEach((question, index) => {
+                const questionHTML = 
                     <div class="quiz-question">
                         <p>${index + 1}. ${question.question}</p>
-                        <div class="options">
-                            ${question.options.map(option => `
-                                <label>
-                                    <input type="radio" name="question${index}" value="${option}" onclick="selectAnswer(${index}, '${option}')">
-                                    ${option}
-                                </label>
-                            `).join('')}
-                        </div>
+                        <input type="radio" name="question${index}" value="${question.options[0]}"> ${question.options[0]}<br>
+                        <input type="radio" name="question${index}" value="${question.options[1]}"> ${question.options[1]}<br>
+                        <input type="radio" name="question${index}" value="${question.options[2]}"> ${question.options[2]}<br>
                     </div>
-                `;
+                ;
                 quizContainer.innerHTML += questionHTML;
             });
         }
 
-        function selectAnswer(questionIndex, selectedOption) {
-            userAnswers[questionIndex] = selectedOption;
-        }
-
-        function submitQuiz() {
+        function showResults() {
+            const quizContainer = document.getElementById('quiz');
             const resultsContainer = document.getElementById('results');
+            const answerContainers = quizContainer.getElementsByClassName('quiz-question');
             const scoreContainer = document.getElementById('score-value');
             const answersContainer = document.getElementById('answers');
 
             let score = 0;
             const incorrectAnswers = [];
 
-            selectedQuestions.forEach((question, index) => {
-                const userAnswer = userAnswers[index];
-                if (userAnswer) {
+            questions.forEach((question, index) => {
+                const selectedOption = [...answerContainers[index].querySelectorAll('input[type="radio"]')].find(input => input.checked);
+                if (selectedOption) {
+                    const userAnswer = selectedOption.value;
                     if (userAnswer === question.correctAnswer) {
                         score++;
                     } else {
-                        incorrectAnswers.push(`
-                            <div>
-                                <p>Question ${index + 1}: ${question.question}</p>
-                                <p>Your Answer: ${userAnswer}</p>
-                                <p>Correct Answer: ${question.correctAnswer}</p>
-                            </div>
-                        `);
+                        incorrectAnswers.push(
+                            <p>Question ${index + 1}: ${question.question}</p>
+                            <p>Correct Answer: ${question.correctAnswer}</p>
+                        );
                     }
                 }
             });
@@ -136,7 +104,6 @@
             scoreContainer.textContent = score;
             resultsContainer.style.display = 'block';
             answersContainer.innerHTML = incorrectAnswers.join('');
-            document.getElementById('quiz').style.display = 'none'; // Hide quiz after submission
         }
 
         buildQuiz();
