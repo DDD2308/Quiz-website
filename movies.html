@@ -1,78 +1,111 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="quizpages.css">
-    </head>
-    <body>
-        <img src='hat.jpg' class="image">
-        <h1 class="header">
-            QUIZ WIZARD
-        </h1>
-        <table>
-            <tr>
-                <td style="border-right: solid 1px black">
-                    <ul style="list-style-type: none;">
-                        <li><div id="e1"><a href="home.html" style="text-decoration: red;">Home</a></div></li>
-                            <li><div><a href="sci.html" style="text-decoration: red;">SCIENCE</a></div></li>
-                            <li><div><a href="movies.html" style="text-decoration: red;">POP-STARS AND MOVIES</a></div></li>
-                            <li><div><a href="gk.html" style="text-decoration: red;">GK</a></div></li>
-                            <li><div><a href="disney.html" style="text-decoration: red;">DISNEY</a></div></li>
-                            <li><div><a href="capital.html" style="text-decoration: red;">CAPITAL-COUNTRY</a></div></li>
-                            <li><div><a href="india.html" style="text-decoration: red;">INDIA</a></div></li>
-                            <li><div><a href="sports.html" style="text-decoration: red;">SPORTS</a></div></li>
-                            <li><div><a href="brain.html" style="text-decoration: red;">BRAIN TEASERS</a></div></li>
-                            <li><div><a href="daily.html" style="text-decoration: red;">DAILY QUIZ</a></div></li>
-                    </ul>
-                </td>
-                <td id="quiz">
+<head>
+    <meta charset="UTF-8">
+    <title>Movie Quiz</title>
+    <link rel="stylesheet" href="quizpages.css">
+    <link rel="stylesheet" href="footerpages.css"> <!-- Include footer styles -->
+    <style>
+        body {
+            font-size: 16px; /* Adjust base font size */
+        }
+        .quiz-question {
+            margin-bottom: 10px;
+        }
+        .intro-text {
+            color: black;
+            margin-bottom: 20px;
+        }
+        .footer {
+            font-size: 14px; /* Decrease footer font size */
+        }
+    </style>
+</head>
+<body>
+    <h1 class="header">
+        QUIZ WIZARD
+    </h1>
+    <div class="intro-text">
+        <p>Welcome to this quiz of movies and pop culture. All the best! Hope you have fun.</p>
+    </div>
+    <table>
+        <tr>
+            <td style="border-right: solid 1px black">
+                <ul style="list-style-type: none;">
+                    <li><div id="e1"><a href="home.html" style="text-decoration: red;">Home</a></div></li>
+                    <li><div><a href="sci.html" style="text-decoration: red;">SCIENCE</a></div></li>
+                    <li><div><a href="movies.html" style="text-decoration: red;">POP-STARS AND MOVIES</a></div></li>
+                    <li><div><a href="gk.html" style="text-decoration: red;">GK</a></div></li>
+                    <li><div><a href="disney.html" style="text-decoration: red;">DISNEY</a></div></li>
+                    <li><div><a href="capital.html" style="text-decoration: red;">CAPITAL-COUNTRY</a></div></li>
+                    <li><div><a href="india.html" style="text-decoration: red;">INDIA</a></div></li>
+                    <li><div><a href="sports.html" style="text-decoration: red;">SPORTS</a></div></li>
+                    <li><div><a href="brain.html" style="text-decoration: red;">BRAIN TEASERS</a></div></li>
+                    <li><div><a href="daily.html" style="text-decoration: red;">DAILY QUIZ</a></div></li>
+                </ul>
+            </td>
+            <td id="quiz">
+                <form id="quiz-form">
                     <script>
-                        const que=['Madhuri Dixit\'s name in Tezaab was?<br>(a) Mohini  (b) Rohini  (c) Sunandha  (d) Radha',
-                        'Aishwarya Rai was crowned Miss World in which year?<br>(a) 1994  (b) 1995  (c) 1993  (d) 1996',
-                        'Who played the role of Emperor Akbar in the movie Mughal e Azam?<br>(a) Prithviraj Kapoor  (b) Murad kapoor  (c) Raj Kapoor  (d) Dilip Kumar',
-                        'Which of the following Indian filmmakers was given the title of \'Ambassador of Interlaken\' in 2011 at Switzerland?<br>(a) Yash Johar  (b) Raj Kapoor  (c) Yash Chopra  (d) Subhash Ghai  ',    
-                        'Which was the first color Bollywood movie?<br>(a) Raja Harishchandra  (b)Mughal e Azam  (c) Kisan Kaniya  (d) Pather Pachali',
-                        'The first Hollywood film in which A R Rahman gave music<br>(a) Slum Dog Millionaire  (b) Bride and Prejudice  (c) The Hundred foot journey  (d) Bride Wars',
-                        'The recent Oscar winning movie of Christopher Nolan?<br>(a) Oppenheimer  (b) Barbie  (c) Shotgun Wedding  (d) Taylor Swift:The Eras Tour',
-                        'First Animated film<br>(a) Fantasmagorie  (b) Finding Nemo  (c) Dora the Explorer  (d) Scooby-Doo',
-                        'Hollywood is in<br>(a) Los Angeles  (b) Las Vegas  (c) Texas  (d) New York',    
-                        'Total Number of Best actor nominations for Amitabh Bachchan in filmfare<br>(a) 12  (b) 28  (c) 30  (d) 40',
-                        'The latest album of Taylor Swift?<br>(a) Midnights  (b) Reputation  (c) Fearless  (d) Evermore',
-                        'Mother of Kardashian-Jenner sisters<br>(a) Kylie  (b) Kim  (c) Kendall  (d) Kris',
-                        'What was Elvis Presley\'s first No. 1 hit in the United States?<br>(a) Heartbreak Hotel  (b) Suspicious Minds  (c) Jailhouse Rock  (d) If I can Dream',
-                        'Megan Markle was part of which famous show?<br>(a) Suits  (b) Gossip Girl  (c) Big Bang Theory  (d) Broke Girls',
-                        'First song of Selena Gomez<br>(a) Slow Down  (b) Wolves  (c) 999  (d) Perfect',
+                        const que = [
+                            'Madhuri Dixit\'s name in Tezaab was?',
+                            'Aishwarya Rai was crowned Miss World in which year?',
+                            'Who played the role of Emperor Akbar in the movie Mughal e Azam?',
+                            'Which of the following Indian filmmakers was given the title of \'Ambassador of Interlaken\' in 2011 at Switzerland?',  
+                            'Which was the first color Bollywood movie?',
+                            'The first Hollywood film in which A R Rahman gave music',
+                            'The recent Oscar winning movie of Christopher Nolan?.', 
+                            'First Animated film',
+                            'Hollywood is in', 
+                            'Total Number of Best actor nominations for Amitabh Bachchan in filmfare',
+                            'The latest album of Taylor Swift?',
+                            'Mother of Kardashian-Jenner sisters',
+                            'What was Elvis Presley\'s first No. 1 hit in the United States?',
+                            'Megan Markle was part of which famous show?',
+                            'First song of Selena Gomez'
                         ];
                         const ans=['Mohini','1994','Prithviraj Kapoor','Yash Chopra','Kisan Kanaiya','Slum Dog Billionare',
                         'Oppenheimer','Fantasmagorie','Los Angeles','28','Midnights','Kris','Heartbreak Hotel','Suits','999'];
-                        let display="";
-                        var x;
-                        for (let i = 0; i <5; i++) {
-                            x=Math.floor(Math.random()*15);
-                            document.write((i+1)+'.'+que[x]+'<br>');
-                            display= display.concat(ans[x]+'<br>');
+                        let selectedQuestions = [];
+                        for (let i = 0; i < 5; i++) {
+                            const index = Math.floor(Math.random() * que.length);
+                            selectedQuestions.push({question: que[index], answer: ans[index]});
+                            que.splice(index, 1);
+                            ans.splice(index, 1);
                         }
-                        function showanswers(){
-                            newdiv = document.createElement('p');
-                            newdiv.innerHTML=display;
-                            document.getElementById('quiz').appendChild(newdiv);
-                        }
+                        selectedQuestions.forEach((item, i) => {
+                            document.write('<p>' + (i + 1) + '. ' + item.question + '</p>');
+                            document.write('<input type="text" id="answer' + i + '" name="answer' + i + '"><br>');
+                        });
                     </script>
-                    <br>
-                    Thought a Lot About it? Check your answers here.<br>
-                    <button onclick="showanswers()" id="answer">Show Answers</button>
-                </td>
-            </tr>
-        </table>
-        <h1 class="footer">
-            Help Us Improve!      
-            <a href="feedback.html" target="_blank" style="text-decoration: none;">Give your feedback here.
-            </a><br><br>
-            OR
-            <br>
-            <p style="text-decoration: none; font-size: 25px;">
-                Contact Us:  99999 88888<br>
-                Email-ID:  <a href = "mailto:quizwiz@org.ac.in">quizwiz@org.ac.in</a>
-            </p>
-        </h1>
-    </body>
+                    <button type="button" onclick="checkAnswers()">Submit</button>
+                </form>
+                <div id="result"></div>
+                <script>
+                    function checkAnswers() {
+                        const resultDiv = document.getElementById('result');
+                        let score = 0;
+                        selectedQuestions.forEach((item, i) => {
+                            const userAnswer = document.getElementById('answer' + i).value.trim();
+                            if (userAnswer.toLowerCase() === item.answer.toLowerCase()) {
+                                score++;
+                            }
+                        });
+                        resultDiv.innerHTML = 'Your score is: ' + score + '/5';
+                    }
+                </script>
+            </td>
+        </tr>
+    </table>
+    <h1 class="footer">
+        Help Us Improve!      
+        <a href="feedback.html" target="_blank" style="text-decoration: none;">Give your feedback here.</a><br><br>
+        OR
+        <br>
+        <p style="text-decoration: none; font-size: 25px;">
+            Contact Us:  99999 88888<br>
+            Email-ID:  <a href="mailto:quizwiz@org.ac.in">quizwiz@org.ac.in</a>
+        </p>
+    </h1>
+</body>
 </html>
