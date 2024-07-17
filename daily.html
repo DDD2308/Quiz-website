@@ -17,8 +17,121 @@
             margin-bottom: 20px;
         }
     </style>
+    <script>
+        // Questions for the daily quiz
+        const questions = [
+            { question: "Who was the first Indian bowler to take all ten wickets in an inning?", options: ["Anil Kumble", "Javagal Srinath", "Harbhajan Singh", "Kapil Dev"], correctAnswer: "Anil Kumble" },
+            { question: "Which Hindu god is believed to have 6 heads?", options: ["Lord Shiva", "Lord Kartikey", "Lord Ganesha", "Lord Krishna"], correctAnswer: "Lord Kartikeya" },
+            { question: "Who was the first Prime Minister of USA?", options: ["Bill Clinton", "Abraham Lincoln", "Peyton Randolph", "James Monroe"], correctAnswer: "Peyton Randolph" },
+            { question: "Entomology is the science that studies", options: ["Human behavior ", "Population of world", "Minerals", "Insects"], correctAnswer: "Insects" },
+            { question: "Which of the following countries isn\'t a part of Gulf Cooperation?", options: ["Saudi Arabia", "Bahrain", "Kuwait", "Iraq"], correctAnswer: "Iraq" },
+            { question: "In which year United Nations was formed?", options: ["1934", "1954", "1947", "1945"], correctAnswer: "1945" },
+            { question: "In which series did Bodyline bowling become controversial?", options: ["Ashes,1932", "Border-Gavaskar Trophy,2007-08", "Pataudi Trophy,2011", "Freedom Trophy,1992"], correctAnswer: "Ashes,1932" },
+            { question: "Where is the International Court of Justice located?", options: ["Hague", "Geneva", "New York", "Paris"], correctAnswer: "Hague" },
+            { question: "Where are 2028 Olympics to be held?", options: ["London", "Paris", "Los Angeles", "Tokyo"], correctAnswer: "Los Angeles" },
+            { question: "As per Forest Act, cultivation of which of the following is a non-forest activity?", options: ["Mulberry", "Rubber", "Tea", "All of the above"], correctAnswer: "All of the above" },
+            { question: "Who was the queen of England when Royal Charter was granted to East India Company?", options: [" Queen Elizabeth 1 ", "Queen Victoria ", " Queen Anne", "Queen Mary 2"], correctAnswer: "Queen Elizabeth 1" },
+            { question: "Who is the first Indian wrestler to win a medal at Asian Games?", options: ["Babita Kumari", "Vinesh Phogat", "Sakshi Malik", "Kavita Devi"], correctAnswer: "Vinesh Phogat" },
+            { question: "Name the Indian tennis player who turned to Hollywood Filmmaker.", options: ["Leander Peas", "Mahesh Bhupathi", "Vijay Amritraj", "Ashok Amritraj"], correctAnswer: "Ashok Amritraj" },
+            { question: "Who is the writer of the book \'House of Cards\'?", options: ["Sudha Murthy", "Chetan Bhagat", "Arundhati Roy", "Shashi Deshpande"], correctAnswer: "Sudha Murthy" },
+            { question: "Which Indian state has most airports?", options: ["Maharashtra", "Gujarat", "Madhya Pradesh", "Rajasthan"], correctAnswer: "Gujarat" }
+        ];
+
+        let currentQuestions = [];
+
+        function initializeQuiz() {
+            currentQuestions = [...questions];
+            shuffleArray(currentQuestions);
+            resetQuiz();
+            showQuestions();
+            hideResults();
+        }
+
+        function showQuestions() {
+            const quizContainer = document.getElementById('quiz');
+            quizContainer.innerHTML = '';
+
+            currentQuestions.forEach((question, index) => {
+                const optionsHtml = question.options.map(option =>
+                    `<label><input type="radio" name="question${index}" value="${option}"> ${option}</label><br>`
+                ).join('');
+
+                const questionHtml = `
+                    <div class="question">
+                        <div>${index + 1}. ${question.question}</div>
+                        ${optionsHtml}
+                    </div>
+                `;
+
+                quizContainer.innerHTML += questionHtml;
+            });
+        }
+
+        function resetQuiz() {
+            document.getElementById('submit').style.display = 'block';
+            document.getElementById('restart').style.display = 'none';
+            document.getElementById('quiz').style.display = 'block';
+            document.getElementById('results').style.display = 'none';
+
+            const answerContainers = document.querySelectorAll('.question input[type="radio"]');
+            answerContainers.forEach(container => container.checked = false);
+        }
+
+        function showResults() {
+            const answerContainers = document.querySelectorAll('.question');
+            let score = 0;
+            let incorrectAnswers = [];
+
+            answerContainers.forEach((container, index) => {
+                const selectedOption = container.querySelector('input[type="radio"]:checked');
+                if (selectedOption) {
+                    const selectedAnswer = selectedOption.value;
+                    if (selectedAnswer === questions[index].correctAnswer) {
+                        score++;
+                    } else {
+                        incorrectAnswers.push({
+                            question: questions[index].question,
+                            correctAnswer: questions[index].correctAnswer,
+                            selectedAnswer
+                        });
+                    }
+                }
+            });
+
+            const scoreDisplay = document.getElementById('score-value');
+            scoreDisplay.textContent = score;
+
+            const answersContainer = document.getElementById('answers');
+            answersContainer.innerHTML = '';
+            incorrectAnswers.forEach(answer => {
+                const answerHtml = `
+                    <p>Question: ${answer.question}</p>
+                    <p>Correct Answer: ${answer.correctAnswer}</p>
+                    <p>Your Answer: ${answer.selectedAnswer}</p>
+                    <hr>
+                `;
+                answersContainer.innerHTML += answerHtml;
+            });
+
+            document.getElementById('quiz').style.display = 'none';
+            document.getElementById('results').style.display = 'block';
+            document.getElementById('submit').style.display = 'none';
+            document.getElementById('restart').style.display = 'block';
+        }
+
+        function hideResults() {
+            document.getElementById('results').style.display = 'none';
+        }
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+    </script>
 </head>
-<body>
+<body onload="initializeQuiz()">
     <img src='hat.jpg' class="image">
     <h1 class="header">QUIZ WIZARD</h1>
     <table>
@@ -38,7 +151,6 @@
                 </ul>
             </td>
             <td id="quiz">
-                <div class="intro-text">Welcome to the daily quiz. Test your knowledge!</div>
                 <!-- Quiz questions will be dynamically generated here -->
             </td>
         </tr>
@@ -52,83 +164,6 @@
     </div>
     <button onclick="showResults()" id="submit">Submit Answers</button>
     <button onclick="initializeQuiz()" id="restart" style="display: none;">Try Again</button>
-    <script>
-        const questions = [
-            { question: "Who was the first Indian bowler to take all ten wickets in an inning?", options: ["Anil Kumble", "Javagal Srinath", "Harbhajan Singh", "Kapil Dev"], correctAnswer: "Anil Kumble" },
-            { question: "Which Hindu god is believed to have 6 heads?", options: ["Lord Shiva", "Lord Kartikey", "Lord Ganesha", "Lord Krishna"], correctAnswer: "Lord Kartikeya" },
-            { question: "Who was the first Prime Minister of USA?", options: ["Bill Clinton", "Abraham Lincoln", "Peyton Randolph", "James Monroe"], correctAnswer: "Peyton Randolph" },
-            { question: "Entomology is the science that studies", options: ["Human behavior ", "Population of world", "Minerals", "Insects"], correctAnswer: "Insects" },
-            { question: "Which of the following countries isn\'t a part of Gulf Cooperation?", options: ["Saudi Arabia", "Bahrain", "Kuwait", "Iraq"], correctAnswer: "Iraq" },
-            { question: "In which year United Nations was formed?", options: ["1934", "1954", "1947", "1945"], correctAnswer: "1945" },
-            { question: "In which series did Bodyline bowling become controversial?", options: ["Ashes,1932", "Border-Gavaskar Trophy,2007-08", "Pataudi Trophy,2011", "Freedom Trophy,1992"], correctAnswer: "Ashes,1932" },
-            { question: "Where is the International Court of Justice located?", options: ["Hague", "Geneva", "New York", "Paris"], correctAnswer: "Hague" },
-            { question: "Where are 2028 Olympics to be held?", options: ["London", "Paris", "Los Angeles", "Tokyo"], correctAnswer: "Los Angeles" },
-            { question: "As per Forest Act, cultivation of which of the following is a non-forest activity?", options: ["Mulberry", "Rubber", "Tea", "All of the above"], correctAnswer: "All of the above" },
-            { question: "Who was the queen of England when Royal Charter was granted to East India Company?", options: [" Queen Elizabeth 1 ", "Queen Victoria ", " Queen Anne", "Queen Mary 2"], correctAnswer: "Queen Elizabeth 1" },
-            { question: "Who is the first Indian wrestler to win a medal at Asian Games?", options: ["Babita Kumari", "Vinesh Phogat", "Sakshi Malik", "Kavita Devi"], correctAnswer: "Vinesh Phogat" },
-            { question: "Name the Indian tennis player who turned to Hollywood Filmmaker.", options: ["Leander Peas", "Mahesh Bhupathi", "Vijay Amritraj", "Ashok Amritraj"], correctAnswer: "Ashok Amritraj" },
-            { question: "Who is the writer of the book \'House of Cards\'?", options: ["Sudha Murthy", "Chetan Bhagat", "Arundhati Roy", "Shashi Deshpande"], correctAnswer: "Sudha Murthy" },
-            { question: "Which Indian state has most airports?", options: ["Maharashtra", "Gujarat", "Madhya Pradesh", "Rajasthan"], correctAnswer: "Gujarat" }
-        ];
-
-
-        function initializeQuiz() {
-            const quizContainer = document.getElementById('quiz');
-            quizContainer.innerHTML = '<div class="intro-text">Welcome to the daily quiz. Test your knowledge!</div>';
-            const shuffledQuestions = questions.sort(() => 0.5 - Math.random()).slice(0, 5);
-            shuffledQuestions.forEach((question, index) => {
-                const questionHTML = `
-                    <div class="quiz-question">
-                        <p>${index + 1}. ${question.question}</p>
-                        <div class="quiz-options">
-                            <label><input type="radio" name="question${index}" value="${question.options[0]}"> ${question.options[0]}</label>
-                            <label><input type="radio" name="question${index}" value="${question.options[1]}"> ${question.options[1]}</label>
-                            <label><input type="radio" name="question${index}" value="${question.options[2]}"> ${question.options[2]}</label>
-                            <label><input type="radio" name="question${index}" value="${question.options[3]}"> ${question.options[3]}</label>
-                        </div>
-                    </div>
-                `;
-                quizContainer.innerHTML += questionHTML;
-            });
-            document.getElementById('results').style.display = 'none';
-            document.getElementById('submit').style.display = 'inline-block';
-            document.getElementById('restart').style.display = 'none';
-        }
-
-        function showResults() {
-            const quizContainer = document.getElementById('quiz');
-            const resultsContainer = document.getElementById('results');
-            const answerContainers = quizContainer.getElementsByClassName('quiz-question');
-            const scoreContainer = document.getElementById('score-value');
-            const answersContainer = document.getElementById('answers');
-
-            let score = 0;
-            const incorrectAnswers = [];
-
-            questions.forEach((question, index) => {
-                const selectedOption = [...answerContainers[index].querySelectorAll('input[type="radio"]')].find(input => input.checked);
-                if (selectedOption) {
-                    const userAnswer = selectedOption.value;
-                    if (userAnswer === question.correctAnswer) {
-                        score++;
-                    } else {
-                        incorrectAnswers.push(`
-                            <p>Question ${index + 1}: ${question.question}</p>
-                            <p>Correct Answer: ${question.correctAnswer}</p>
-                        `);
-                    }
-                }
-            });
-
-            scoreContainer.textContent = score;
-            resultsContainer.style.display = 'block';
-            answersContainer.innerHTML = incorrectAnswers.join('');
-            document.getElementById('submit').style.display = 'none';
-            document.getElementById('restart').style.display = 'inline-block';
-        }
-
-        document.addEventListener('DOMContentLoaded', initializeQuiz);
-    </script>
     <h1 class="footer">
         Help Us Improve!      
         <a href="feedback.html" target="_blank" style="text-decoration: none;">Give your feedback here.</a><br><br>
@@ -140,4 +175,3 @@
     </h1>
 </body>
 </html>
-
