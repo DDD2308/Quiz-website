@@ -1,90 +1,58 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
-    color: black;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    background-color: #f0f0f0;
 }
 
 .image {
-    margin-top: 20px;
-    width: 50%;
-    max-width: 400px; /* Adjust max-width as needed */
+    margin-top: 10px;
+    width: 30%;
+    max-width: 300px; /* Adjust logo size as needed */
 }
 
 .header {
     text-align: center;
-    color: black;
-    margin-top: 20px;
 }
 
-.footer {
-    text-align: center;
-    margin-top: 20px;
-    font-size: 16px;
-    color: black;
+ul {
+    list-style-type: none;
+    padding: 0;
 }
 
-.quiz-container {
-    max-width: 800px;
-    margin: 20px;
+ul li {
+    margin-bottom: 5px;
+}
+
+ul li a {
+    text-decoration: none;
+    color: red; /* Adjust link color */
+}
+
+ul li a:hover {
+    color: red; /* Adjust hover color */
+}
+
+#quiz {
+    margin: 20px auto;
+    width: 60%;
+    background-color: white;
     padding: 20px;
-    background-color: #ffffff;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-.intro-text {
-    margin-bottom: 20px;
-    font-size: 16px;
-    color: black;
-    text-align: left; /* Align intro text to left */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .quiz-question {
-    margin-bottom: 20px;
-    background-color: #ffffff;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    margin-bottom: 10px;
 }
 
 .options label {
-    display: inline-block; /* Display options inline */
-    cursor: pointer;
-    padding: 10px;
-    border: 1px solid #ccc;
-    margin-right: 10px; /* Adjust margin as needed */
-    margin-bottom: 10px; /* Adjust margin as needed */
-    border-radius: 3px;
+    display: inline-block;
+    margin-right: 10px;
 }
 
-#submit {
-    display: block;
-    margin: 20px auto;
-    padding: 10px 20px;
-    cursor: pointer;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
+#results {
+    display: none;
 }
 
-#submit:hover {
-    background-color: #45a049;
-}
-
-.results {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.results h2 {
-    color: black;
-}
-
-.results p {
-    color: black;
+#try-again {
+    display: none;
 }
