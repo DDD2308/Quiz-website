@@ -57,6 +57,23 @@ document.addEventListener('DOMContentLoaded', () => {
             { question: "Copenhagen", options: ["Denmark", "Czech Republic", "Austria"], answer: "Denmark" },
             { question: "Vienna", options: ["Denmark", "Czech Republic", "Austria"], answer: "Austria" }
     ];
+    const dailyquestions = [
+            { question: "Who was the first Indian bowler to take all ten wickets in an inning?", options: ["Anil Kumble", "Javagal Srinath", "Harbhajan Singh", "Kapil Dev"], answer: "Anil Kumble" },
+            { question: "Which Hindu god is believed to have 6 heads?", options: ["Lord Shiva", "Lord Kartikey", "Lord Ganesha", "Lord Krishna"], answer: "Lord Kartikeya" },
+            { question: "Who was the first Prime Minister of USA?", options: ["Bill Clinton", "Abraham Lincoln", "Peyton Randolph", "James Monroe"], answer: "Peyton Randolph" },
+            { question: "Entomology is the science that studies", options: ["Human behavior ", "Population of world", "Minerals", "Insects"], answer: "Insects" },
+            { question: "Which of the following countries isn\'t a part of Gulf Cooperation?", options: ["Saudi Arabia", "Bahrain", "Kuwait", "Iraq"], answer: "Iraq" },
+            { question: "In which year United Nations was formed?", options: ["1934", "1954", "1947", "1945"], answer: "1945" },
+            { question: "In which series did Bodyline bowling become controversial?", options: ["Ashes,1932", "Border-Gavaskar Trophy,2007-08", "Pataudi Trophy,2011", "Freedom Trophy,1992"], answer: "Ashes,1932" },
+            { question: "Where is the International Court of Justice located?", options: ["Hague", "Geneva", "New York", "Paris"], answer: "Hague" },
+            { question: "Where are 2028 Olympics to be held?", options: ["London", "Paris", "Los Angeles", "Tokyo"], answer: "Los Angeles" },
+            { question: "As per Forest Act, cultivation of which of the following is a non-forest activity?", options: ["Mulberry", "Rubber", "Tea", "All of the above"], answer: "All of the above" },
+            { question: "Who was the queen of England when Royal Charter was granted to East India Company?", options: [" Queen Elizabeth 1 ", "Queen Victoria ", " Queen Anne", "Queen Mary 2"], answer: "Queen Elizabeth 1" },
+            { question: "Who is the first Indian wrestler to win a medal at Asian Games?", options: ["Babita Kumari", "Vinesh Phogat", "Sakshi Malik", "Kavita Devi"], answer: "Vinesh Phogat" },
+            { question: "Name the Indian tennis player who turned to Hollywood Filmmaker.", options: ["Leander Peas", "Mahesh Bhupathi", "Vijay Amritraj", "Ashok Amritraj"], answer: "Ashok Amritraj" },
+            { question: "Who is the writer of the book \'House of Cards\'?", options: ["Sudha Murthy", "Chetan Bhagat", "Arundhati Roy", "Shashi Deshpande"], answer: "Sudha Murthy" },
+            { question: "Which Indian state has most airports?", options: ["Maharashtra", "Gujarat", "Madhya Pradesh", "Rajasthan"], answer: "Gujarat" }
+        ];
     function showQuestion(question) {
         questionContainer.innerHTML = '';
         const questionElement = document.createElement('div');
