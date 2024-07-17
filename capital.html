@@ -5,8 +5,23 @@
     <title>Capital-Country Quiz</title>
     <link rel="stylesheet" href="quizpages.css">
     <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .quiz-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
         .quiz-question {
             margin-bottom: 20px;
+            background-color: #ffffff;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .quiz-question:hover {
+            background-color: #f0f0f0; /* Light gray background on hover */
         }
         .options label {
             display: block;
@@ -14,44 +29,48 @@
             padding: 5px;
             border: 1px solid #ccc;
             margin-bottom: 5px;
+            border-radius: 3px;
         }
         .options label:hover {
-            background-color: #f0f0f0;
+            background-color: #e0e0e0; /* Lighter gray background on hover */
+        }
+        .intro-text {
+            color: black;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        .results {
+            display: none;
+            margin-top: 20px;
+        }
+        .results h2 {
+            color: black;
+        }
+        .results p {
+            color: black;
         }
     </style>
 </head>
 <body>
-    <img src='hat.jpg' class="image">
-    <h1 class="header">QUIZ WIZARD</h1>
-    <table>
-        <tr>
-            <td style="border-right: solid 1px black">
-                <ul style="list-style-type: none;">
-                    <li><div id="e1"><a href="home.html" style="text-decoration: red;">Home</a></div></li>
-                    <li><div><a href="sci.html" style="text-decoration: red;">SCIENCE</a></div></li>
-                    <li><div><a href="movies.html" style="text-decoration: red;">POP-STARS AND MOVIES</a></div></li>
-                    <li><div><a href="gk.html" style="text-decoration: red;">GK</a></div></li>
-                    <li><div><a href="disney.html" style="text-decoration: red;">DISNEY</a></div></li>
-                    <li><div><a href="capital.html" style="text-decoration: red;">CAPITAL-COUNTRY</a></div></li>
-                    <li><div><a href="india.html" style="text-decoration: red;">INDIA</a></div></li>
-                    <li><div><a href="sports.html" style="text-decoration: red;">SPORTS</a></div></li>
-                    <li><div><a href="brain.html" style="text-decoration: red;">BRAIN TEASERS</a></div></li>
-                    <li><div><a href="daily.html" style="text-decoration: red;">DAILY QUIZ</a></div></li>
-                </ul>
-            </td>
-            <td id="quiz">
-                <!-- Quiz questions and options will be dynamically generated here -->
-            </td>
-        </tr>
-    </table>
-    <div id="results" style="display: none;">
-        <h2>Results</h2>
-        <p id="score">Score: <span id="score-value"></span></p>
-        <div id="answers">
-            <!-- Incorrect answers will be dynamically generated here -->
+    <div class="quiz-container">
+        <img src='hat.jpg' class="image">
+        <h1 class="header">QUIZ WIZARD</h1>
+        <div class="intro-text">
+            Welcome to this quiz about capitals and countries. All the best! Hope you have fun.
         </div>
+        <div id="quiz">
+            <!-- Quiz questions and options will be dynamically generated here -->
+        </div>
+        <div class="results" id="results">
+            <h2>Results</h2>
+            <p id="score">Score: <span id="score-value"></span></p>
+            <div id="answers">
+                <!-- Incorrect answers will be dynamically generated here -->
+            </div>
+        </div>
+        <button onclick="submitQuiz()" id="submit">Submit Answers</button>
     </div>
-    <button onclick="submitQuiz()" id="submit">Submit Answers</button>
+
     <script>
         const questions = [
             { question: "Minsk", options: ["Belarus", "Gambia", "India"], correctAnswer: "Belarus" },
@@ -84,19 +103,14 @@
 
         function buildQuiz() {
             const quizContainer = document.getElementById('quiz');
-            quizContainer.innerHTML = ''; // Clear previous quiz content
-            selectedQuestions = shuffleArray([...questions]).slice(0, 5); // Shuffle and pick 5 random questions
-            selectedQuestions.forEach((question, index) => {
+            questions.forEach((question, index) => {
                 const questionHTML = `
                     <div class="quiz-question">
                         <p>${index + 1}. ${question.question}</p>
                         <div class="options">
-                            ${question.options.map(option => `
-                                <label>
-                                    <input type="radio" name="question${index}" value="${option}" onclick="selectAnswer(${index}, '${option}')">
-                                    ${option}
-                                </label>
-                            `).join('')}
+                            <label><input type="radio" name="question${index}" value="${question.options[0]}"> ${question.options[0]}</label>
+                            <label><input type="radio" name="question${index}" value="${question.options[1]}"> ${question.options[1]}</label>
+                            <label><input type="radio" name="question${index}" value="${question.options[2]}"> ${question.options[2]}</label>
                         </div>
                     </div>
                 `;
@@ -104,30 +118,26 @@
             });
         }
 
-        function selectAnswer(questionIndex, selectedOption) {
-            userAnswers[questionIndex] = selectedOption;
-        }
-
         function submitQuiz() {
+            const quizContainer = document.getElementById('quiz');
             const resultsContainer = document.getElementById('results');
+            const answerContainers = quizContainer.getElementsByClassName('quiz-question');
             const scoreContainer = document.getElementById('score-value');
             const answersContainer = document.getElementById('answers');
 
             let score = 0;
             const incorrectAnswers = [];
 
-            selectedQuestions.forEach((question, index) => {
-                const userAnswer = userAnswers[index];
-                if (userAnswer) {
+            questions.forEach((question, index) => {
+                const selectedOption = [...answerContainers[index].querySelectorAll('input[type="radio"]')].find(input => input.checked);
+                if (selectedOption) {
+                    const userAnswer = selectedOption.value;
                     if (userAnswer === question.correctAnswer) {
                         score++;
                     } else {
                         incorrectAnswers.push(`
-                            <div>
-                                <p>Question ${index + 1}: ${question.question}</p>
-                                <p>Your Answer: ${userAnswer}</p>
-                                <p>Correct Answer: ${question.correctAnswer}</p>
-                            </div>
+                            <p>Question ${index + 1}: ${question.question}</p>
+                            <p>Correct Answer: ${question.correctAnswer}</p>
                         `);
                     }
                 }
@@ -136,7 +146,6 @@
             scoreContainer.textContent = score;
             resultsContainer.style.display = 'block';
             answersContainer.innerHTML = incorrectAnswers.join('');
-            document.getElementById('quiz').style.display = 'none'; // Hide quiz after submission
         }
 
         buildQuiz();
