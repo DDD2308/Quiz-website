@@ -2,30 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Capital-Country Quiz</title>
+    <title>Daily Quiz</title>
     <link rel="stylesheet" href="quizpages.css">
-    <link rel="stylesheet" href="footerpages.css"> <!-- Include footer styles -->
     <style>
-        body {
-            font-size: 16px; /* Adjust base font size */
-        }
         .quiz-question {
             margin-bottom: 10px;
         }
-        .intro-text {
-            color: black;
-            margin-bottom: 20px;
+        .quiz-options {
+            display: flex;
+            gap: 10px;
         }
-        .footer {
-            font-size: 14px; /* Decrease footer font size */
+        .intro-text {
+            font-size: 18px;
+            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
+    <img src='hat.jpg' class="image">
     <h1 class="header">QUIZ WIZARD</h1>
-    <div class="intro-text">
-        <p>Welcome to this quiz of capitals and countries. All the best! Hope you have fun.</p>
-    </div>
     <table>
         <tr>
             <td style="border-right: solid 1px black">
@@ -43,6 +38,7 @@
                 </ul>
             </td>
             <td id="quiz">
+                <div class="intro-text">Welcome to the daily quiz. Test your knowledge!</div>
                 <!-- Quiz questions will be dynamically generated here -->
             </td>
         </tr>
@@ -53,12 +49,10 @@
         <div id="answers">
             <!-- Incorrect answers will be dynamically generated here -->
         </div>
-        <button onclick="restartQuiz()" id="restart" style="display: none;">Try Again</button>
     </div>
     <button onclick="showResults()" id="submit">Submit Answers</button>
-
+    <button onclick="initializeQuiz()" id="restart" style="display: none;">Try Again</button>
     <script>
-        // Array of 15 questions with options and correct answers                    
         const questions = [
             { question: "Who was the first Indian bowler to take all ten wickets in an inning?", options: ["Anil Kumble", "Javagal Srinath", "Harbhajan Singh", "Kapil Dev"], correctAnswer: "Anil Kumble" },
             { question: "Which Hindu god is believed to have 6 heads?", options: ["Lord Shiva", "Lord Kartikey", "Lord Ganesha", "Lord Krishna"], correctAnswer: "Lord Kartikeya" },
@@ -77,37 +71,30 @@
             { question: "Which Indian state has most airports?", options: ["Maharashtra", "Gujarat", "Madhya Pradesh", "Rajasthan"], correctAnswer: "Gujarat" }
         ];
 
-        // Function to shuffle questions array randomly
-        function shuffleQuestions(array) {
-            let currentIndex = array.length, randomIndex;
-            while (currentIndex !== 0) {
-                randomIndex = Math.floor(Math.random() * currentIndex);
-                currentIndex--;
-                [array[currentIndex], array[randomIndex]] = [
-                    array[randomIndex], array[currentIndex]
-                ];
-            }
-            return array;
-        }
 
-        // Function to build and initialize the quiz
         function initializeQuiz() {
-            const shuffledQuestions = shuffleQuestions([...questions]).slice(0, 5); // Select 5 random questions
             const quizContainer = document.getElementById('quiz');
+            quizContainer.innerHTML = '<div class="intro-text">Welcome to the daily quiz. Test your knowledge!</div>';
+            const shuffledQuestions = questions.sort(() => 0.5 - Math.random()).slice(0, 5);
             shuffledQuestions.forEach((question, index) => {
                 const questionHTML = `
                     <div class="quiz-question">
                         <p>${index + 1}. ${question.question}</p>
-                        <input type="radio" name="question${index}" value="${question.options[0]}"> ${question.options[0]}<br>
-                        <input type="radio" name="question${index}" value="${question.options[1]}"> ${question.options[1]}<br>
-                        <input type="radio" name="question${index}" value="${question.options[2]}"> ${question.options[2]}<br>
+                        <div class="quiz-options">
+                            <label><input type="radio" name="question${index}" value="${question.options[0]}"> ${question.options[0]}</label>
+                            <label><input type="radio" name="question${index}" value="${question.options[1]}"> ${question.options[1]}</label>
+                            <label><input type="radio" name="question${index}" value="${question.options[2]}"> ${question.options[2]}</label>
+                            <label><input type="radio" name="question${index}" value="${question.options[3]}"> ${question.options[3]}</label>
+                        </div>
                     </div>
                 `;
                 quizContainer.innerHTML += questionHTML;
             });
+            document.getElementById('results').style.display = 'none';
+            document.getElementById('submit').style.display = 'inline-block';
+            document.getElementById('restart').style.display = 'none';
         }
 
-        // Function to show quiz results
         function showResults() {
             const quizContainer = document.getElementById('quiz');
             const resultsContainer = document.getElementById('results');
@@ -118,9 +105,7 @@
             let score = 0;
             const incorrectAnswers = [];
 
-            const shuffledQuestions = shuffleQuestions([...questions]).slice(0, 5); // Select 5 random questions
-
-            shuffledQuestions.forEach((question, index) => {
+            questions.forEach((question, index) => {
                 const selectedOption = [...answerContainers[index].querySelectorAll('input[type="radio"]')].find(input => input.checked);
                 if (selectedOption) {
                     const userAnswer = selectedOption.value;
@@ -138,32 +123,21 @@
             scoreContainer.textContent = score;
             resultsContainer.style.display = 'block';
             answersContainer.innerHTML = incorrectAnswers.join('');
-            document.getElementById('submit').style.display = 'none'; // Hide submit button
-            document.getElementById('restart').style.display = 'inline-block'; // Show try again button
+            document.getElementById('submit').style.display = 'none';
+            document.getElementById('restart').style.display = 'inline-block';
         }
 
-        // Function to restart the quiz
-        function restartQuiz() {
-            document.getElementById('quiz').innerHTML = ''; // Clear quiz questions
-            document.getElementById('results').style.display = 'none'; // Hide results
-            document.getElementById('submit').style.display = 'inline-block'; // Show submit button
-            initializeQuiz(); // Reinitialize quiz with new random questions
-        }
-
-        // Call function to initialize quiz when page loads
-        window.onload = function() {
-            initializeQuiz();
-        };
+        document.addEventListener('DOMContentLoaded', initializeQuiz);
     </script>
-
     <h1 class="footer">
         Help Us Improve!      
         <a href="feedback.html" target="_blank" style="text-decoration: none;">Give your feedback here.</a><br><br>
         OR<br>
-        <p style="text-decoration: none; font-size: 18px;"> <!-- Slightly increase other text size -->
+        <p style="text-decoration: none; font-size: 14px;">
             Contact Us: 99999 88888<br>
             Email-ID: <a href="mailto:quizwiz@org.ac.in">quizwiz@org.ac.in</a>
         </p>
     </h1>
 </body>
 </html>
+
