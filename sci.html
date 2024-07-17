@@ -10,7 +10,7 @@
         </h1>
         <table>
             <tr>
-                <td id="menu">
+                <td style="border-right: solid 1px black">
                     <ul style="list-style-type: none;">
                         <li><div id="e1"><a href="home.html" style="text-decoration: red;">Home</a></div></li>
                         <li><div><a href="sci.html" style="text-decoration: red;">SCIENCE</a></div></li>
@@ -25,40 +25,53 @@
                     </ul>
                 </td>
                 <td id="quiz">
-                    <script>
-                        const que=['Who was the first man on Moon? ', 
-                        'Who is the largest land animal?',
-                        'What do vampire bats eat?',
-                        'What is hottest planet in solar system?',
-                        'What is fear of spiders called?' ,
-                        'Bronze is an alloy consisting primarily of which two elements?',
-                        'How many bones do sharks have?',
-                        'What is study of light called?',
-                        'How many legs does a spider have?',
-                        'What is the rarest blood type?',
-                        'What is the largest internal organ?',
-                        'What are gaps between nerves called?',
-                        'What is the powerhouse of cell?',
-                        'Which is the nearest planet to Sun?',
-                        'What is the thinnest layer of Earth?'];
-                        const ans=['Neil Armstrong','Elephant','Blood','Venus','Arachnophobia','Copper and Tin',
-                        'Zero','Optics','Eight','AB-','Liver','Synapses','Mitochondria','Mercury','Crust'];
-                        let display="";
-                        var x;
-                        for (let i = 0; i <5; i++) {
-                            x=Math.floor(Math.random()*15);
-                            document.write((i+1)+'.'+que[x]+'<br>');
-                            display= display.concat(ans[x]+'<br>');
-                        }
-                        function showanswers(){
-                            newdiv = document.createElement('p');
-                            newdiv.innerHTML=display;
-                            document.getElementById('quiz').appendChild(newdiv);
-                        }
+                    <form id="quiz-form">
+                        <script>
+                            const que=['Who was the first man on Moon? ', 
+                            'Who is the largest land animal?',
+                            'What do vampire bats eat?',
+                            'What is hottest planet in solar system?',
+                            'What is fear of spiders called?' ,
+                            'Bronze is an alloy consisting primarily of which two elements?',
+                            'How many bones do sharks have?',
+                            'What is study of light called?',
+                            'How many legs does a spider have?',
+                            'What is the rarest blood type?',
+                            'What is the largest internal organ?',
+                            'What are gaps between nerves called?',
+                            'What is the powerhouse of cell?',
+                            'Which is the nearest planet to Sun?',
+                            'What is the thinnest layer of Earth?'];
+                            const ans=['Neil Armstrong','Elephant','Blood','Venus','Arachnophobia','Copper and Tin',
+                            'Zero','Optics','Eight','AB-','Liver','Synapses','Mitochondria','Mercury','Crust'];
+                            let selectedQuestions = [];
+                            for (let i = 0; i < 5; i++) {
+                                const index = Math.floor(Math.random() * que.length);
+                                selectedQuestions.push({question: que[index], answer: ans[index]});
+                                que.splice(index, 1);
+                                ans.splice(index, 1);
+                            }
+                            selectedQuestions.forEach((item, i) => {
+                                document.write('<p>' + (i + 1) + '. ' + item.question + '</p>');
+                                document.write('<input type="text" id="answer' + i + '" name="answer' + i + '"><br>');
+                            });
                         </script>
-                        <br>
-                        Thought a Lot About it? Check your answers here.<br>
-                        <button onclick="showanswers()" id="answer">Show Answers</button>
+                        <button type="button" onclick="checkAnswers()">Submit</button>
+                </form>
+                <div id="result"></div>
+                <script>
+                    function checkAnswers() {
+                        const resultDiv = document.getElementById('result');
+                        let score = 0;
+                        selectedQuestions.forEach((item, i) => {
+                            const userAnswer = document.getElementById('answer' + i).value.trim();
+                            if (userAnswer.toLowerCase() === item.answer.toLowerCase()) {
+                                score++;
+                            }
+                        });
+                        resultDiv.innerHTML = 'Your score is: ' + score + '/5';
+                    }
+                </script>
                 </td>
             </tr>
         </table>
