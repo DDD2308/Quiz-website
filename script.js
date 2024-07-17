@@ -74,6 +74,23 @@ document.addEventListener('DOMContentLoaded', () => {
             { question: "Who is the writer of the book \'House of Cards\'?", options: ["Sudha Murthy", "Chetan Bhagat", "Arundhati Roy", ], answer: "Sudha Murthy" },
             { question: "Which Indian state has most airports?", options: ["Maharashtra", "Gujarat", "Rajasthan"], answer: "Gujarat" }
         ];
+    const disneyquestions = [
+            {question: 'How many brothers does Prince Hans of the Southern Isles have in Frozen?', options: ["6", "12", "10"], answer: "12"},
+            {question: 'What is the name of Wendy\'s dog in Peter Pan?', options: ["Nana", "Fluffy", "Tom"], answer:"Nana"},
+            {question: 'What is the name of Ariel and Prince Eric\'s daughter?', options: ["Celeste", "Melody", "Beatrice"], answer:"Nana"},
+            {question: 'Which of the following is not one of the seven dwarves?', options: ["Bashful", "Grumpy", "Jumpy"], answer:"Jumpy" },
+            {question: 'Name of Belle\'s father in \'Beauty and Beast\'', options: ["Philip", "Maurice", "Timothy"], answer:"Maurice"},
+            {question: 'Name of Snow White\'s prince', options: ["Florian", "Greg", "Eric"], answer:"Florian"},
+            {question: 'How long was Genie stuck in the lamp before Aladdin released him?', options: ["8000 years", "400 years", "10000 years"], answer:"10000 years"},
+            {question: 'Who was the first Disney princess?', options: ["Snow White", "Cinderella", "Ariel"], answer: "Snow White"  },
+            {question: 'What do Aladdin and his monkey Abu steal from the marketplace when you\'re first introduced to them in the movie?', options: ["Orange", "Loaf of bread", "Apple"], answer: 'Loaf of bread'},
+            {question: 'What is the name of Cinderella\'s evil stepsister?', options: ["Beatrice", "Daphne", "Anastasia"], answer:"Anastasia"},
+            {question: 'Which famous princess attends Elsa\'s coronation ceremony in Frozen?', options: ["Mulan", "Rapunzel", "Ariel"], answer:"Rapunzel"},
+            {question: 'What is the first Pixar movie?', options: ["Toy Story", "Finding Nemo", "Mickey Mouse"], answer:"Toy Story"},
+            {question: 'How many Disney theme parks are there at Walt Disney World?', options: ["3", "4", "5"], answer:"4" },
+            {question: 'Which Disney princess has the fewest lines?', options: ["Ariel", "Tiana", "Aurora"], answer:"Aurora" },
+            {question: 'What is the name of the tea cup from \"Beauty and the Beast\"?', options: ["Chip Potts", "Chippy Potts", "Candela"], answer:'Chip Potts'}
+        ];
     function showQuestion(question) {
         questionContainer.innerHTML = '';
         const questionElement = document.createElement('div');
