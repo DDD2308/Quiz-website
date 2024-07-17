@@ -24,6 +24,23 @@ document.addEventListener('DOMContentLoaded', () => {
         { question: 'What can you hear but not touch or see and yet control?', type: 'text', answer: 'Your voice' },
     ];
     const scienceQuestions = [
+        { question: 'Who was the first man on Moon? ', type: 'text', answer: 'Neil Armstrong' },
+        { question: 'Who is the largest land animal?', type: 'text', answer: 'Elephant' },
+        { question: 'What do vampire bats eat?', type: 'text', answer: 'Blood' },
+        { question: 'What is hottest planet in solar system?', type: 'text', answer: 'Venus' },
+        { question: 'What is fear of spiders called?', type: 'text', answer: 'Arachnophobia' },
+        { question: 'Bronze is an alloy consisting primarily of which two elements?', type: 'text', answer: 'Copper and Tin' },
+        { question: 'How many bones do sharks have?', type: 'text', answer: 'Zero' },
+        { question: 'What is study of light called?', type: 'text', answer: 'Optics' },
+        { question: 'How many legs does a spider have?', type: 'text', answer: 'Eight' },
+        { question: 'What is the rarest blood type?', type: 'text', answer: 'AB-' },
+        { question: 'What is the largest internal organ?', type: 'text', answer: 'Liver' },
+        { question: 'What are gaps between nerves called?', type: 'text', answer: 'Synapses' },
+        { question: 'What is the powerhouse of cell?', type: 'text', answer: 'Mitochondria' },
+        { question: 'Which is the nearest planet to Sun?', type: 'text', answer: 'Mercury' },
+        { question: 'What is the thinnest layer of Earth?', type: 'text', answer: 'Crust' },
+    ];
+    const geoQuestions = [
         {
             question: "What is the capital of France?",
             answers: [
