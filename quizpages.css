@@ -12,6 +12,11 @@ body {
 .header {
     text-align: center;
 }
+/* Adjust footer styles */
+.footer {
+    font-size: 14px; /* Decrease footer font size */
+}
+
 
 ul {
     list-style-type: none;
@@ -42,6 +47,10 @@ ul li a:hover {
 
 .quiz-question {
     margin-bottom: 10px;
+}
+/* Adjust hover effect */
+.quiz-question:hover {
+    background-color: transparent; /* Remove or adjust hover effect */
 }
 
 .options label {
