@@ -1,78 +1,110 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="quizpages.css">
-    </head>
-    <body>
-        <img src='hat.jpg' class="image">
-        <h1 class="header">
-            QUIZ WIZARD
-        </h1>
-        <table>
-            <tr>
-                <td style="border-right: solid 1px black">
-                    <ul style="list-style-type: none;">
-                            <li><div id="e1"><a href="home.html" style="text-decoration: red;">Home</a></div></li>
-                            <li><div><a href="sci.html" style="text-decoration: red;">SCIENCE</a></div></li>
-                            <li><div><a href="movies.html" style="text-decoration: red;">POP-STARS AND MOVIES</a></div></li>
-                            <li><div><a href="gk.html" style="text-decoration: red;">GK</a></div></li>
-                            <li><div><a href="disney.html" style="text-decoration: red;">DISNEY</a></div></li>
-                            <li><div><a href="capital.html" style="text-decoration: red;">CAPITAL-COUNTRY</a></div></li>
-                            <li><div><a href="india.html" style="text-decoration: red;">INDIA</a></div></li>
-                            <li><div><a href="sports.html" style="text-decoration: red;">SPORTS</a></div></li>
-                            <li><div><a href="brain.html" style="text-decoration: red;">BRAIN TEASERS</a></div></li>
-                            <li><div><a href="daily.html" style="text-decoration: red;">DAILY QUIZ</a></div></li>
-                    </ul>
-                </td>
-                <td id="quiz">
+<head>
+    <meta charset="UTF-8">
+    <title>India Quiz</title>
+    <link rel="stylesheet" href="quizpages.css">
+    <link rel="stylesheet" href="footerpages.css"> <!-- Include footer styles -->
+    <style>
+        body {
+            font-size: 16px; /* Adjust base font size */
+        }
+        .quiz-question {
+            margin-bottom: 10px;
+        }
+        .intro-text {
+            color: black;
+            margin-bottom: 20px;
+        }
+        .footer {
+            font-size: 14px; /* Decrease footer font size */
+        }
+    </style>
+</head>
+<body>
+    <h1 class="header">
+        QUIZ WIZARD
+    </h1>
+    <div class="intro-text">
+        <p>Welcome to this quiz of India and its places. All the best! Hope you have fun.</p>
+    </div>
+    <table>
+        <tr>
+            <td style="border-right: solid 1px black">
+                <ul style="list-style-type: none;">
+                    <li><div id="e1"><a href="home.html" style="text-decoration: red;">Home</a></div></li>
+                    <li><div><a href="sci.html" style="text-decoration: red;">SCIENCE</a></div></li>
+                    <li><div><a href="movies.html" style="text-decoration: red;">POP-STARS AND MOVIES</a></div></li>
+                    <li><div><a href="gk.html" style="text-decoration: red;">GK</a></div></li>
+                    <li><div><a href="disney.html" style="text-decoration: red;">DISNEY</a></div></li>
+                    <li><div><a href="capital.html" style="text-decoration: red;">CAPITAL-COUNTRY</a></div></li>
+                    <li><div><a href="india.html" style="text-decoration: red;">INDIA</a></div></li>
+                    <li><div><a href="sports.html" style="text-decoration: red;">SPORTS</a></div></li>
+                    <li><div><a href="brain.html" style="text-decoration: red;">BRAIN TEASERS</a></div></li>
+                    <li><div><a href="daily.html" style="text-decoration: red;">DAILY QUIZ</a></div></li>
+                </ul>
+            </td>
+            <td id="quiz">
+                <form id="quiz-form">
                     <script>
-                        const que=["The famous \'Hornbill festival\' is celebrated in which of the following States of India? <br>(a) Nagaland   (b) Mizoram   (c) Assam   (d) Meghalaya",
-                        "Kallol was the name of one of the most influential movements in which among the following literatures? <br>(a) Gujarati   (b) Bangla  (c) Punjabi  (d) Haryanvi",
-                        "Pandit Bhimsen Joshi is related to which form of art?<br>(a) Hindustani vocalist  (b) Flute player  (c) Sitar Maestro  (d) Odissi dancers",
-                        "Where is Nanda Devi National Sanctuary located?<br>(a) Uttarakhand  (b) Himachal Pradesh  (c) Jammu and Kashmir  (d) Punjab",
-                        "The ratio of width of our National Flag to its length is<br>(a) 3:5  (b) 2:3  (c) 2:4  (d) 3:4",
-                        "Rabindranath Tagore\'s “Jana Gana Mana” has been adopted as India\'s National Anthem. How many stanza of the said song were adopted?<br>(a) Only First Stanza  (b) Whole Song<br>(c) Third and fourth Stanza   (d) First and Second Stanza",
-                        "Which spice is known as \'Haldi\'?<br>(a) Cinnamon  (b) Nutmeg   (c) Clove  (d) Turmeric",
-                        "What is the highest mountain peak located in India?<br>(a) Everest  (b) K2  (c) Kanchenjunga  (d) Kailash",
-                        "Which Indian city is known as \'City of Lakes\'?<br>(a) Jaipur  (b) Udaipur  (c) Jodhpur  (d) Jaisalmer  ",
-                        "What was the name of India\'s first satellite?<br>(a) Aryabhatta  (b) Agni  (c) Rohini  (d) Bhaskara",
-                        "Which is the largest Indian state by population?<br>(a) Uttar Pradesh  (b) Karnataka  (c) Maharashtra  (d) Gujarat",
-                        "\'Spice Garden of India\'<br>(a) Tamil Nadu  (b) Karnataka  (c) Maharashtra  (d) Kerala",
-                        "When was Constitution of India adopted?<br>(a) 1947  (b) 1949   (c) 1950   (d) 1948",
-                        "National Tree of India<br>(a) Neem   (b) Peepal  (c) Banyan   (d) Fir",
-                        "Which is the largest Indian dam?<br>(a) Tehri   (b) Ukai   (c) Sardar Sarovar   (d) Bhakra Nangal"
+                        const que=["The famous \'Hornbill festival\' is celebrated in which of the following States of India? ",
+                        "Kallol was the name of one of the most influential movements in which among the following literatures? ,
+                        "Pandit Bhimsen Joshi is related to which form of art?"  ,
+                        "Where is Nanda Devi National Sanctuary located?",
+                        "The ratio of width of our National Flag to its length is",
+                        "Rabindranath Tagore\'s “Jana Gana Mana” has been adopted as India\'s National Anthem. How many stanza of the said song were adopted?",
+                        "Which spice is known as \'Haldi\'?",
+                        "What is the highest mountain peak located in India?",
+                        "Which Indian city is known as \'City of Lakes\'? ",
+                        "What was the name of India\'s first satellite?",
+                        "Which is the largest Indian state by population?",
+                        "What is known as the Spice Garden of India",
+                        "When was Constitution of India adopted?",
+                        "National Tree of India",
+                        "Which is the largest Indian dam?"
                         ];
                         const ans=["Nagaland","Bangla","Hindustani Vocalist","Uttarakhand","2:3","Only First Stanza","Turmeric",
                         "Kanchenjunga","Udaipur","Aryabhatta","Uttar Pradesh","Kerala","1949","Banyan","Tehri"];
-                        let display="";
-                        var x;
-                        for (let i = 0; i <5; i++) {
-                            x=Math.floor(Math.random()*15);
-                            document.write((i+1)+'.'+que[x]+'<br>');
-                            display= display.concat(ans[x]+'<br>');
+                        let selectedQuestions = [];
+                        for (let i = 0; i < 5; i++) {
+                            const index = Math.floor(Math.random() * que.length);
+                            selectedQuestions.push({question: que[index], answer: ans[index]});
+                            que.splice(index, 1);
+                            ans.splice(index, 1);
                         }
-                        function showanswers(){
-                            newdiv = document.createElement('p');
-                            newdiv.innerHTML=display;
-                            document.getElementById('quiz').appendChild(newdiv);
-                        }
+                        selectedQuestions.forEach((item, i) => {
+                            document.write('<p>' + (i + 1) + '. ' + item.question + '</p>');
+                            document.write('<input type="text" id="answer' + i + '" name="answer' + i + '"><br>');
+                        });
                     </script>
-                    <br>
-                    Thought a Lot About it? Check your answers here.<br>
-                    <button onclick="showanswers()" id="answer">Show Answers</button>
-                </td>
-            </tr>
-        </table>
-        <h1 class="footer">
-            Help Us Improve!      
-            <a href="feedback.html" target="_blank" style="text-decoration: none;">Give your feedback here.
-            </a><br><br>
-            OR
-            <br>
-            <p style="text-decoration: none; font-size: 25px;">
-                Contact Us:  99999 88888<br>
-                Email-ID:  <a href = "mailto:quizwiz@org.ac.in">quizwiz@org.ac.in</a>
-            </p>
-        </h1>
-    </body>
+                    <button type="button" onclick="checkAnswers()">Submit</button>
+                </form>
+                <div id="result"></div>
+                <script>
+                    function checkAnswers() {
+                        const resultDiv = document.getElementById('result');
+                        let score = 0;
+                        selectedQuestions.forEach((item, i) => {
+                            const userAnswer = document.getElementById('answer' + i).value.trim();
+                            if (userAnswer.toLowerCase() === item.answer.toLowerCase()) {
+                                score++;
+                            }
+                        });
+                        resultDiv.innerHTML = 'Your score is: ' + score + '/5';
+                    }
+                </script>
+            </td>
+        </tr>
+    </table>
+    <h1 class="footer">
+        Help Us Improve!      
+        <a href="feedback.html" target="_blank" style="text-decoration: none;">Give your feedback here.</a><br><br>
+        OR
+        <br>
+        <p style="text-decoration: none; font-size: 25px;">
+            Contact Us:  99999 88888<br>
+            Email-ID:  <a href="mailto:quizwiz@org.ac.in">quizwiz@org.ac.in</a>
+        </p>
+    </h1>
+</body>
 </html>
