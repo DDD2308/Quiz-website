@@ -1,79 +1,169 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <link rel="stylesheet" href="quizpages.css">
-    </head>
-    <body>
-        <img src='hat.jpg' class="image">
-        <h1 class="header">
-            QUIZ WIZARD
-        </h1>
-        <table>
-            <tr>
-                <td style="border-right: solid 1px black">
-                    <ul style="list-style-type: none;">
-                        <li><div id="e1"><a href="home.html" style="text-decoration: red;">Home</a></div></li>
-                        <li><div><a href="sci.html" style="text-decoration: red;">SCIENCE</a></div></li>
-                        <li><div><a href="movies.html" style="text-decoration: red;">POP-STARS AND MOVIES</a></div></li>
-                        <li><div><a href="gk.html" style="text-decoration: red;">GK</a></div></li>
-                        <li><div><a href="disney.html" style="text-decoration: red;">DISNEY</a></div></li>
-                        <li><div><a href="capital.html" style="text-decoration: red;">CAPITAL-COUNTRY</a></div></li>
-                        <li><div><a href="india.html" style="text-decoration: red;">INDIA</a></div></li>
-                        <li><div><a href="sports.html" style="text-decoration: red;">SPORTS</a></div></li>
-                        <li><div><a href="brain.html" style="text-decoration: red;">BRAIN TEASERS</a></div></li>
-                        <li><div><a href="daily.html" style="text-decoration: red;">DAILY QUIZ</a></div></li>
-                    </ul>
-                </td>
-                <td id="quiz">
-                    <script>
-                        const que=['The newly constructed Maharishi Valmiki International Airport is located in?<br>(a)Varanasi  (b)Ayodhya  (c)Vrindavan  (d)Gorakhpur',
-                        'India made its first-ever payment in rupees for crude oil purchased from?<br>(a)UAE  (b)Qatar  (c)Saudi Arab  (d)Russia',
-                        'Which country had recently asked India to withdraw its military personnel from its territory?<br>(a)Mauritius  (b)Sri Lanka  (c)Maldives  (d)Canada',
-                        'National Consumer Rights Day in India is observed on.<br>(a)24th December  (b)28th December (c)4th January  (d)8th January',
-                        'In the \'best-performing states\' category in Swachh Survekshan Awards 2023 which state bagged the top spot?<br>(a)Maharashtra  (b)Madhya Pradesh  (c)Karnataka  (d)Uttar Pradesh',
-                        'Who becomes the first Indian Woman Arjuna Awardee for Equestrian Sports<br>(a)Sudipti Hajela  (b)Divyakriti Singh  (c)Sheetal Devi  (d)Parul Chaudhary',
-                        'Who has been awarded with the Bharat Ratna Award in 2024<br>(a)Karpoori Thakur  (b)Rammanohar Lohiya  (c)V.P.Singh  (d)Kanshi Ram',
-                        'Which one becomes the fifth country to land on the Moon successfully<br>(a)India  (b)Japan  (c)Germany  (d)South Korea',
-                        'What is the name of the telescope recently launched to study early galaxies?<br>(a) James Webb Space Telescope  (b) Hubble Space Telescope  (c) Kepler Space Telescope  (d) Spitzer Space Telescope',
-                        'What is the largest supercomputer in the world as of January 2024?<br>(a) Frontier  (b) Fugaku  (c) Summit  (d) Sierra',
-                        'Bag-Less School initiative, recently seen in the news, is introduced by which state?<br>(a) Uttar Pradesh  (b) Madhya Pradesh  (c) Rajasthan  (d) Bihar',
-                        'Recently, which album won the \'Best Global Music Album\' award at theGrammy Awards 2024? <br>(a) This Moment  (b) Endless Summer Vacation  (c) The Record  (d) World Music Radio',
-                        'What is the primary objective of SAMARTH scheme, recently seen in the news?<br>(a) Providing scholarship to rural students for higher education<br>(b) Providing assistance to farmers<br>(c) Providing assistance to the MSMEs<br>(d) providing comprehensive medical care to children',
-                        'Which state became the first Indian state to buy land in Kashmir?<br>(a)Gujarat  (b)Goa  (c) Maharashtra (d)Karnataka',
-                        'Tamas Sulyok, who was seen in the news, became a new president of which country?<br>(a)Poland  (b)Hundgary (c)Italy  (d)France'
-                        ];
-                        const ans=['Ayodhya','UAE','Maldives','24th December','Maharashtra','Divyakriti Singh','Karpoori Thakur',
-                        'Japan','James Webb Space Telescope','Frontier','Madhya Pradesh','This Moment',
-                        'Providing assistance to MSMEs','Maharashtra','Hungary'];
-                        let display="";
-                        var x;
-                        for (let i = 0; i <5; i++) {
-                            x=Math.floor(Math.random()*15);
-                            document.write((i+1)+'.'+que[x]+'<br>');
-                            display= display.concat(ans[x]+'<br>');
-                        }
-                        function showanswers(){
-                            newdiv = document.createElement('p');
-                            newdiv.innerHTML=display;
-                            document.getElementById('quiz').appendChild(newdiv);
-                        }
-                    </script>
-                    <br>
-                    Thought a Lot About it? Check your answers here.<br>
-                    <button onclick="showanswers()" id="answer">Show Answers</button>
-                </td>
-            </tr>
-        </table>
-        <h1 class="footer">
-            Help Us Improve!      
-            <a href="feedback.html" target="_blank" style="text-decoration: none;">Give your feedback here.
-            </a><br><br>
-            OR
-            <br>
-            <p style="text-decoration: none; font-size: 25px;">
-                Contact Us:  99999 88888<br>
-                Email-ID:  <a href = "mailto:quizwiz@org.ac.in">quizwiz@org.ac.in</a>
-            </p>
-        </h1>
-    </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Disney Quiz</title>
+    <link rel="stylesheet" href="quizpages.css">
+    <link rel="stylesheet" href="footerpages.css"> <!-- Include footer styles -->
+    <style>
+        body {
+            font-size: 16px; /* Adjust base font size */
+        }
+        .quiz-question {
+            margin-bottom: 10px;
+        }
+        .intro-text {
+            color: black;
+            margin-bottom: 20px;
+        }
+        .footer {
+            font-size: 14px; /* Decrease footer font size */
+        }
+    </style>
+</head>
+<body>
+    <h1 class="header">QUIZ WIZARD</h1>
+    <div class="intro-text">
+        <p>Welcome to this quiz of disney movies. All the best! Hope you have fun.</p>
+    </div>
+    <table>
+        <tr>
+            <td style="border-right: solid 1px black">
+                <ul style="list-style-type: none;">
+                    <li><div id="e1"><a href="home.html" style="text-decoration: red;">Home</a></div></li>
+                    <li><div><a href="sci.html" style="text-decoration: red;">SCIENCE</a></div></li>
+                    <li><div><a href="movies.html" style="text-decoration: red;">POP-STARS AND MOVIES</a></div></li>
+                    <li><div><a href="gk.html" style="text-decoration: red;">GK</a></div></li>
+                    <li><div><a href="disney.html" style="text-decoration: red;">DISNEY</a></div></li>
+                    <li><div><a href="capital.html" style="text-decoration: red;">CAPITAL-COUNTRY</a></div></li>
+                    <li><div><a href="india.html" style="text-decoration: red;">INDIA</a></div></li>
+                    <li><div><a href="sports.html" style="text-decoration: red;">SPORTS</a></div></li>
+                    <li><div><a href="brain.html" style="text-decoration: red;">BRAIN TEASERS</a></div></li>
+                    <li><div><a href="daily.html" style="text-decoration: red;">DAILY QUIZ</a></div></li>
+                </ul>
+            </td>
+            <td id="quiz">
+                <!-- Quiz questions will be dynamically generated here -->
+            </td>
+        </tr>
+    </table>
+    <div id="results" style="display: none;">
+        <h2>Results</h2>
+        <p id="score">Score: <span id="score-value"></span></p>
+        <div id="answers">
+            <!-- Incorrect answers will be dynamically generated here -->
+        </div>
+        <button onclick="restartQuiz()" id="restart" style="display: none;">Try Again</button>
+    </div>
+    <button onclick="showResults()" id="submit">Submit Answers</button>
+
+    <script>
+        // Array of 15 questions with options and correct answers
+        const questions = [
+            {question: 'The newly constructed Maharishi Valmiki International Airport is located in?, options: ["Ayodhya", "Vrindavan", "Gorakhpur"], answer: "Ayodhya"},
+            {question: 'India made its first-ever payment in rupees for crude oil purchased from?', options: ["UAE", "Qatar", "Saudi Arabia"], answer:"UAE"},
+            {question: 'Which country had recently asked India to withdraw its military personnel from its territory?', options: ["Mauritius", "Sri Lanka", "Maldives"], answer:"Maldives"},
+            {question: 'National Consumer Rights Day in India is observed on.', options: ["24 Dec", "28 Dec", "4 jan"], answer:"24 Dec" },
+            {question: 'In the \'best-performing states\' category in Swachh Survekshan Awards 2023 which state bagged the top spot?', options: ["Maharashtra", "Madhaya Pradesh", "Uttar Pradesh"], answer:"Maharashtra"},
+            {question: 'Who became the first Indian Woman Arjuna Awardee for Equestrian Sports', options: ["Sudipti Hajela", "Parul Chaudhary", "Divyakriti Singh"], answer:"Divyakriti Singh"},
+            {question: 'Who has been awarded with the Bharat Ratna Award in 2024', options: ["Rammanohar Lohiya ", "Karpoori Thakur ", "Kanshi Ram"], answer:"Karpoori Thakur "},
+            {question: 'Bag-Less School initiative, recently seen in the news, is introduced by which state?', options: ["Uttar Pradesh", "Madhya Pradesh", "Bihar"], answer: "Madhya Pradesh"  },
+            {question: 'Which is the fifth country to land on the Moon successfully', options: ["India", "Japan", "Germany"], answer: 'Japan'},
+            {question: 'What is the name of the telescope recently launched to study early galaxies?', options: ["James Webb Space Telescope", "Hubble Space Telescope", "Kepler Space Telescope"], answer:"James Webb Space Telescope"},
+            {question: 'What is the largest supercomputer in the world as of January 2024?', options: ["Fugaku", "Frontier", "Summit"], answer:"Frontier"},
+            {question: 'Recently, which album won the \'Best Global Music Album\' award at theGrammy Awards 2024?', options: ["The Record", "This Moment", "World Record"], answer:"This moment"},
+            {question: 'What is the primary objective of SAMARTH scheme, recently seen in the news?', options: ["Providing scholarship to rural students for higher education", "Providing assistance to farmers", "Providing assistance to the MSMEs"], answer:"Providing assistance to the MSMEs" },
+            {question: 'Which state became the first Indian state to buy land in Kashmir?', options: ["Gujarat", "Goa", "Maharashtra"], answer:"Maharashtra" },
+            {question: 'Tamas Sulyok, who was seen in the news, became a new president of which country?', options: ["Hungary", "Poland", "Italy"], answer:'Hungary'}
+        ];
+
+        // Function to shuffle questions array randomly
+        function shuffleQuestions(array) {
+            let currentIndex = array.length, randomIndex;
+            while (currentIndex !== 0) {
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex--;
+                [array[currentIndex], array[randomIndex]] = [
+                    array[randomIndex], array[currentIndex]
+                ];
+            }
+            return array;
+        }
+
+        // Function to build and initialize the quiz
+        function initializeQuiz() {
+            const shuffledQuestions = shuffleQuestions([...questions]).slice(0, 5); // Select 5 random questions
+            const quizContainer = document.getElementById('quiz');
+            shuffledQuestions.forEach((question, index) => {
+                const questionHTML = `
+                    <div class="quiz-question">
+                        <p>${index + 1}. ${question.question}</p>
+                        <input type="radio" name="question${index}" value="${question.options[0]}"> ${question.options[0]}<br>
+                        <input type="radio" name="question${index}" value="${question.options[1]}"> ${question.options[1]}<br>
+                        <input type="radio" name="question${index}" value="${question.options[2]}"> ${question.options[2]}<br>
+                    </div>
+                `;
+                quizContainer.innerHTML += questionHTML;
+            });
+        }
+
+        // Function to show quiz results
+        function showResults() {
+            const quizContainer = document.getElementById('quiz');
+            const resultsContainer = document.getElementById('results');
+            const answerContainers = quizContainer.getElementsByClassName('quiz-question');
+            const scoreContainer = document.getElementById('score-value');
+            const answersContainer = document.getElementById('answers');
+
+            let score = 0;
+            const incorrectAnswers = [];
+
+            const shuffledQuestions = shuffleQuestions([...questions]).slice(0, 5); // Select 5 random questions
+
+            shuffledQuestions.forEach((question, index) => {
+                const selectedOption = [...answerContainers[index].querySelectorAll('input[type="radio"]')].find(input => input.checked);
+                if (selectedOption) {
+                    const userAnswer = selectedOption.value;
+                    if (userAnswer === question.correctAnswer) {
+                        score++;
+                    } else {
+                        incorrectAnswers.push(`
+                            <p>Question ${index + 1}: ${question.question}</p>
+                            <p>Correct Answer: ${question.correctAnswer}</p>
+                        `);
+                    }
+                }
+            });
+
+            scoreContainer.textContent = score;
+            resultsContainer.style.display = 'block';
+            answersContainer.innerHTML = incorrectAnswers.join('');
+            document.getElementById('submit').style.display = 'none'; // Hide submit button
+            document.getElementById('restart').style.display = 'inline-block'; // Show try again button
+        }
+
+        // Function to restart the quiz
+        function restartQuiz() {
+            document.getElementById('quiz').innerHTML = ''; // Clear quiz questions
+            document.getElementById('results').style.display = 'none'; // Hide results
+            document.getElementById('submit').style.display = 'inline-block'; // Show submit button
+            initializeQuiz(); // Reinitialize quiz with new random questions
+        }
+
+        // Call function to initialize quiz when page loads
+        window.onload = function() {
+            initializeQuiz();
+        };
+    </script>
+
+    <h1 class="footer">
+        Help Us Improve!      
+        <a href="feedback.html" target="_blank" style="text-decoration: none;">Give your feedback here.</a><br><br>
+        OR<br>
+        <p style="text-decoration: none; font-size: 18px;"> <!-- Slightly increase other text size -->
+            Contact Us: 99999 88888<br>
+            Email-ID: <a href="mailto:quizwiz@org.ac.in">quizwiz@org.ac.in</a>
+        </p>
+    </h1>
+</body>
 </html>
