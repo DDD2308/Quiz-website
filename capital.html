@@ -5,8 +5,9 @@
     <title>Capital-Country Quiz</title>
     <link rel="stylesheet" href="quizpages.css">
     <style>
-        .quiz-question {
-            margin-bottom: 10px;
+        /* Style for correct answers */
+        #answers p {
+            color: black; /* Set correct answer text color to black */
         }
     </style>
 </head>
@@ -30,7 +31,7 @@
                 </ul>
             </td>
             <td id="quiz">
-                <!-- Quiz questions will be dynamically generated here -->
+                <!-- Quiz questions and options will be dynamically generated here -->
             </td>
         </tr>
     </table>
@@ -67,19 +68,29 @@
                 const questionHTML = `
                     <div class="quiz-question">
                         <p>${index + 1}. ${question.question}</p>
-                        <input type="radio" name="question${index}" value="${question.options[0]}"> ${question.options[0]}<br>
-                        <input type="radio" name="question${index}" value="${question.options[1]}"> ${question.options[1]}<br>
-                        <input type="radio" name="question${index}" value="${question.options[2]}"> ${question.options[2]}<br>
+                        ${question.options.map((option, idx) => `
+                            <div onclick="selectAnswer(${index}, ${idx})">${option}</div>
+                        `).join('')}
                     </div>
                 `;
                 quizContainer.innerHTML += questionHTML;
             });
         }
 
+        let userAnswers = [];
+
+        function selectAnswer(questionIndex, optionIndex) {
+            const selectedOption = questions[questionIndex].options[optionIndex];
+            userAnswers[questionIndex] = selectedOption;
+            // Visual feedback (e.g., highlight selected option)
+            document.querySelectorAll(`#quiz .quiz-question:nth-child(${questionIndex + 1}) div`).forEach((div, idx) => {
+                div.style.backgroundColor = idx === optionIndex ? 'lightblue' : 'inherit';
+            });
+        }
+
         function showResults() {
             const quizContainer = document.getElementById('quiz');
             const resultsContainer = document.getElementById('results');
-            const answerContainers = quizContainer.getElementsByClassName('quiz-question');
             const scoreContainer = document.getElementById('score-value');
             const answersContainer = document.getElementById('answers');
 
@@ -87,9 +98,8 @@
             const incorrectAnswers = [];
 
             questions.forEach((question, index) => {
-                const selectedOption = [...answerContainers[index].querySelectorAll('input[type="radio"]')].find(input => input.checked);
-                if (selectedOption) {
-                    const userAnswer = selectedOption.value;
+                const userAnswer = userAnswers[index];
+                if (userAnswer) {
                     if (userAnswer === question.correctAnswer) {
                         score++;
                     } else {
