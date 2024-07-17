@@ -108,6 +108,23 @@ document.addEventListener('DOMContentLoaded', () => {
             {question: 'Which state became the first Indian state to buy land in Kashmir?', options: ["Gujarat", "Goa", "Maharashtra"], answer:"Maharashtra" },
             {question: 'Tamas Sulyok, who was seen in the news, became a new president of which country?', options: ["Hungary", "Poland", "Italy"], answer:'Hungary'}
         ];
+    const movieQuestions = [
+        { question: 'Madhuri Dixit\'s name in Tezaab was?', type: 'text', answer: 'Mohini' },
+        { question: 'Aishwarya Rai was crowned Miss World in which year?', type: 'text', answer: '1994' },
+        { question: 'Who played the role of Emperor Akbar in the movie Mughal e Azam?',, type: 'text', answer: 'Prithviraj Kapoor' },
+        { question: 'Which of the following Indian filmmakers was given the title of \'Ambassador of Interlaken\' in 2011 at Switzerland?',  type: 'text', answer: 'Yash Chopra' },
+        { question: 'Which was the first color Bollywood movie?', type: 'text', answer: 'Kisan Kanaiya' },
+        { question: 'Total Number of Best actor nominations for Amitabh Bachchan in filmfare', type: 'text', answer: '28' },
+        { question: 'The first Hollywood film in which A R Rahman gave music', type: 'text', answer: 'Slum dog Billionare' },
+        { question: 'The recent Oscar winning movie of Christopher Nolan?.', type: 'text', answer: 'Oppenheimer' },
+        { question: 'First Animated film', type: 'text', answer: 'Fantasmagorie' },
+        { question: 'Hollywood is in',  type: 'text', answer: 'Los Angeles' },
+        { question: 'The latest album of Taylor Swift?',type: 'text', answer: 'Midnights' },
+        { question: 'Mother of Kardashian-Jenner sisters', type: 'text', answer: 'Kris' },
+        { question: 'What was Elvis Presley\'s first No. 1 hit in the United States?', type: 'text', answer: 'Heartbreak Hotel' },
+        { question: 'Megan Markle was part of which famous show?', type: 'text', answer: 'Suits' },
+        { question: 'First song of Selena Gomez', type: 'text', answer: '999' },
+    ];
     function showQuestion(question) {
         questionContainer.innerHTML = '';
         const questionElement = document.createElement('div');
