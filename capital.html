@@ -20,9 +20,6 @@
             border: 1px solid #ccc;
             border-radius: 5px;
         }
-        .quiz-question:hover {
-            background-color: #f0f0f0; /* Light gray background on hover */
-        }
         .options label {
             display: block;
             cursor: pointer;
@@ -31,17 +28,14 @@
             margin-bottom: 5px;
             border-radius: 3px;
         }
-        .options label:hover {
-            background-color: #e0e0e0; /* Lighter gray background on hover */
-        }
         .intro-text {
             color: black;
             font-size: 16px;
             margin-bottom: 20px;
         }
         .results {
-            display: none;
             margin-top: 20px;
+            text-align: center;
         }
         .results h2 {
             color: black;
@@ -56,12 +50,12 @@
         <img src='hat.jpg' class="image">
         <h1 class="header">QUIZ WIZARD</h1>
         <div class="intro-text">
-            Welcome to this quiz about capitals and countries. All the best! Hope you have fun.
+            <"Welcome to this quiz about capitals and countries. All the best! Hope you have fun.">
         </div>
         <div id="quiz">
             <!-- Quiz questions and options will be dynamically generated here -->
         </div>
-        <div class="results" id="results">
+        <div class="results" id="results" style="display: none;">
             <h2>Results</h2>
             <p id="score">Score: <span id="score-value"></span></p>
             <div id="answers">
@@ -77,29 +71,8 @@
             { question: "Nicosia", options: ["Georgia", "Cyprus", "Slovakia"], correctAnswer: "Cyprus" },
             { question: "Tbilisi", options: ["Hungary", "Georgia", "Morocco"], correctAnswer: "Georgia" },
             { question: "Capital of Australia", options: ["Sydney", "Melbourne", "Canberra"], correctAnswer: "Canberra" },
-            { question: "Kuala Lumpur", options: ["Malaysia", "Philippines", "Tonga"], correctAnswer: "Malaysia" },
-            { question: "Stockholm", options: ["Sweden", "Cyprus", "Denmark"], correctAnswer: "Sweden" },
-            { question: "Baku", options: ["Iraq", "Iran", "Azerbaijan"], correctAnswer: "Azerbaijan" },
-            { question: "Prague", options: ["Denmark", "Czech Republic", "Austria"], correctAnswer: "Czech Republic" },
-            { question: "Budapest", options: ["Hungary", "Georgia", "Siberia"], correctAnswer: "Hungary" },
-            { question: "Buenos Aires", options: ["Chile", "Argentina", "Brazil"], correctAnswer: "Argentina" },
-            { question: "Paris", options: ["Italy", "UK", "France"], correctAnswer: "France" },
-            { question: "Athens", options: ["Greece", "UK", "France"], correctAnswer: "Greece" },
-            { question: "Bucharest", options: ["Albania", "Romania", "Hungary"], correctAnswer: "Romania" },
-            { question: "Copenhagen", options: ["Denmark", "Czech Republic", "Austria"], correctAnswer: "Denmark" },
-            { question: "Vienna", options: ["Denmark", "Czech Republic", "Austria"], correctAnswer: "Austria" }
+            { question: "Kuala Lumpur", options: ["Malaysia", "Philippines", "Tonga"], correctAnswer: "Malaysia" }
         ];
-
-        let selectedQuestions = [];
-        let userAnswers = {};
-
-        function shuffleArray(array) {
-            for (let i = array.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [array[i], array[j]] = [array[j], array[i]];
-            }
-            return array;
-        }
 
         function buildQuiz() {
             const quizContainer = document.getElementById('quiz');
