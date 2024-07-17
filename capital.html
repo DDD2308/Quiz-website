@@ -5,9 +5,24 @@
     <title>Capital-Country Quiz</title>
     <link rel="stylesheet" href="quizpages.css">
     <style>
-        /* Style for correct answers */
-        #answers p {
-            color: black; /* Set correct answer text color to black */
+        .quiz-question {
+            margin-bottom: 20px;
+        }
+        .options div {
+            cursor: pointer;
+            padding: 5px;
+            margin: 5px;
+            border: 1px solid #ccc;
+            display: inline-block;
+        }
+        .options div.selected {
+            background-color: lightblue;
+        }
+        .options div.correct {
+            background-color: lightgreen;
+        }
+        .options div.incorrect {
+            background-color: lightcoral;
         }
     </style>
 </head>
@@ -42,7 +57,7 @@
             <!-- Incorrect answers will be dynamically generated here -->
         </div>
     </div>
-    <button onclick="showResults()" id="submit">Submit Answers</button>
+    <button onclick="submitQuiz()" id="submit">Submit Answers</button>
     <script>
         const questions = [
             { question: "Minsk", options: ["Belarus", "Gambia", "India"], correctAnswer: "Belarus" },
@@ -77,9 +92,11 @@
                 const questionHTML = `
                     <div class="quiz-question">
                         <p>${index + 1}. ${question.question}</p>
-                        ${question.options.map(option => `
-                            <div onclick="selectAnswer(${index}, '${option}')">${option}</div>
-                        `).join('')}
+                        <div class="options">
+                            ${question.options.map(option => `
+                                <div onclick="selectAnswer(${index}, '${option}')">${option}</div>
+                            `).join('')}
+                        </div>
                     </div>
                 `;
                 quizContainer.innerHTML += questionHTML;
@@ -90,14 +107,16 @@
 
         function selectAnswer(questionIndex, selectedOption) {
             userAnswers[questionIndex] = selectedOption;
-            // Visual feedback (e.g., highlight selected option)
             const quizQuestion = document.querySelectorAll('.quiz-question')[questionIndex];
-            quizQuestion.querySelectorAll('div').forEach(div => {
-                div.style.backgroundColor = div.textContent === selectedOption ? 'lightblue' : 'inherit';
+            quizQuestion.querySelectorAll('.options div').forEach(div => {
+                div.classList.remove('selected');
+                if (div.textContent === selectedOption) {
+                    div.classList.add('selected');
+                }
             });
         }
 
-        function showResults() {
+        function submitQuiz() {
             const quizContainer = document.getElementById('quiz');
             const resultsContainer = document.getElementById('results');
             const scoreContainer = document.getElementById('score-value');
@@ -106,7 +125,8 @@
             let score = 0;
             const incorrectAnswers = [];
 
-            questions.forEach((question, index) => {
+            const shuffledQuestions = shuffleArray(questions).slice(0, 5);
+            shuffledQuestions.forEach((question, index) => {
                 const userAnswer = userAnswers[index];
                 if (userAnswer) {
                     if (userAnswer === question.correctAnswer) {
@@ -123,6 +143,7 @@
             scoreContainer.textContent = score;
             resultsContainer.style.display = 'block';
             answersContainer.innerHTML = incorrectAnswers.join('');
+            quizContainer.style.display = 'none'; // Hide quiz after submission
         }
 
         buildQuiz();
