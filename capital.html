@@ -90,6 +90,7 @@
 
         function buildQuiz() {
             const quizContainer = document.getElementById('quiz');
+            quizContainer.innerHTML = ''; // Clear previous quiz content
             selectedQuestions = shuffleArray([...questions]).slice(0, 5); // Shuffle and pick 5 random questions
             selectedQuestions.forEach((question, index) => {
                 const questionHTML = `
@@ -133,9 +134,11 @@
                         score++;
                     } else {
                         incorrectAnswers.push(`
-                            <p>Question ${index + 1}: ${question.question}</p>
-                            <p>Your Answer: ${userAnswer}</p>
-                            <p>Correct Answer: ${question.correctAnswer}</p>
+                            <div>
+                                <p>Question ${index + 1}: ${question.question}</p>
+                                <p>Your Answer: ${userAnswer}</p>
+                                <p>Correct Answer: ${question.correctAnswer}</p>
+                            </div>
                         `);
                     }
                 }
