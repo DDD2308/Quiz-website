@@ -1,78 +1,169 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <link rel="stylesheet" href="quizpages.css">
-    </head>
-    <body>
-        <img src='hat.jpg' class="image">
-        <h1 class="header">
-            QUIZ WIZARD
-        </h1>
-        <table>
-            <tr>
-                <td style="border-right: solid 1px black">
-                    <ul style="list-style-type: none;">
-                            <li><div id="e1"><a href="home.html" style="text-decoration: red;">Home</a></div></li>
-                            <li><div><a href="sci.html" style="text-decoration: red;">SCIENCE</a></div></li>
-                            <li><div><a href="movies.html" style="text-decoration: red;">POP-STARS AND MOVIES</a></div></li>
-                            <li><div><a href="gk.html" style="text-decoration: red;">GK</a></div></li>
-                            <li><div><a href="disney.html" style="text-decoration: red;">DISNEY</a></div></li>
-                            <li><div><a href="capital.html" style="text-decoration: red;">CAPITAL-COUNTRY</a></div></li>
-                            <li><div><a href="india.html" style="text-decoration: red;">INDIA</a></div></li>
-                            <li><div><a href="sports.html" style="text-decoration: red;">SPORTS</a></div></li>
-                            <li><div><a href="brain.html" style="text-decoration: red;">BRAIN TEASERS</a></div></li>
-                            <li><div><a href="daily.html" style="text-decoration: red;">DAILY QUIZ</a></div></li>
-                    </ul>
-                </td>
-                <td id="quiz">
-                    <script>
-                        const que=['How many brothers does Prince Hans of the Southern Isles have in Frozen?<br>(a)6  (b)12  (c)10  (d)8',
-                        'What is the name of Wendy\'s dog in Peter Pan?<br>(a)Nana  (b)Fluffy  (c)Tom  (d)Scooby',
-                        'What is the name of Ariel and Prince Eric\'s daughter?<br>(a)Celeste  (b)Melody  (c)Beatrice  (d)Eugene',
-                        'Which of the following is not one of the seven dwarves?<br>(a)Bashful  (b)Grumpy  (c)Doc  (d)Jumpy',
-                        'Name of Belle\'s father in \'Beauty and Beast\'<br>(a)Timothy  (b)Maurice  (c)Greg (d)Philip',
-                        'Name of Snow White\'s prince<br>(a)Florian  (b) Eric  (c) Greg (d) Philip',
-                        'How long was Genie stuck in the lamp before Aladdin released him?<br>(a)400years  (b)10000years  (c)1000 years  (d)600years',
-                        'Who was the first Disney princess?<br>(a)Ariel  (b)Aurora  (c)Cinderella  (d)Snow White',
-                        'What do Aladdin and his monkey Abu steal from the marketplace when you\'re first introduced to them in the movie?<br>(a)Loaf of bread(b)Apple  (c)Orange  (d)Dates',
-                        'What is the name of Cinderella\'s evil stepsister?<br>(a)Anastasia  (b)Beatrice  (c)Eugenie  (d)Daphine',
-                        'Which famous princess attends Elsa\'s coronation ceremony in Frozen?<br>(a)Rapunzel  (b)Ariel  (c)Mulan  (d)Merida',
-                        'What is the first Pixar movie?<br>(a)Toy Story  (b)A Bug\'s Life  (c)Finding Nemo  (d) Mickey Mouse',
-                        'How many Disney theme parks are there at Walt Disney World?<br>(a)3  (b)4  (c)5  (d)6',
-                        'Which Disney princess has the fewest lines?<br>(a)Tiana  (b)Aurora  (c)Cinderella  (d)Ariel',
-                        'What is the name of the tea cup from \"Beauty and the Beast\"?<br>(a)Chip Potts  (b)Chippy Potts  (c)Candela  (d)Mrs Murphy'
-                        ];
-                        const ans=['12','Nana','Melody','Jumpy','Maurice','Florian','10000 years','Snow White','Loaf of bread',
-                        'Anastasia','Rapunzel','Toy Story','4','Aurora','Chip Potts']
-                        var x;
-                        let display="";
-                        for (let i = 0; i <5; i++) {
-                            x=Math.floor(Math.random()*15);
-                            document.write((i+1)+'.'+que[x]+'<br>');
-                            display= display.concat(ans[x]+'<br>');
-                        }
-                        function showanswers(){
-                            newdiv = document.createElement('p');
-                            newdiv.innerHTML=display;
-                            document.getElementById('quiz').appendChild(newdiv);
-                        }
-                        </script>
-                        <br>
-                        Thought a Lot About it? Check your answers here.<br>
-                        <button onclick="showanswers()" id="answer">Show Answers</button>
-                </td>
-            </tr>
-        </table>
-        <h1 class="footer">
-            Help Us Improve!      
-            <a href="feedback.html" target="_blank" style="text-decoration: none;">Give your feedback here.
-            </a><br><br>
-            OR
-            <br>
-            <p style="text-decoration: none; font-size: 25px;">
-                Contact Us:  99999 88888<br>
-                Email-ID:  <a href = "mailto:quizwiz@org.ac.in">quizwiz@org.ac.in</a>
-            </p>
-        </h1>
-    </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Capital-Country Quiz</title>
+    <link rel="stylesheet" href="quizpages.css">
+    <link rel="stylesheet" href="footerpages.css"> <!-- Include footer styles -->
+    <style>
+        body {
+            font-size: 16px; /* Adjust base font size */
+        }
+        .quiz-question {
+            margin-bottom: 10px;
+        }
+        .intro-text {
+            color: black;
+            margin-bottom: 20px;
+        }
+        .footer {
+            font-size: 14px; /* Decrease footer font size */
+        }
+    </style>
+</head>
+<body>
+    <h1 class="header">QUIZ WIZARD</h1>
+    <div class="intro-text">
+        <p>Welcome to this quiz of capitals and countries. All the best! Hope you have fun.</p>
+    </div>
+    <table>
+        <tr>
+            <td style="border-right: solid 1px black">
+                <ul style="list-style-type: none;">
+                    <li><div id="e1"><a href="home.html" style="text-decoration: red;">Home</a></div></li>
+                    <li><div><a href="sci.html" style="text-decoration: red;">SCIENCE</a></div></li>
+                    <li><div><a href="movies.html" style="text-decoration: red;">POP-STARS AND MOVIES</a></div></li>
+                    <li><div><a href="gk.html" style="text-decoration: red;">GK</a></div></li>
+                    <li><div><a href="disney.html" style="text-decoration: red;">DISNEY</a></div></li>
+                    <li><div><a href="capital.html" style="text-decoration: red;">CAPITAL-COUNTRY</a></div></li>
+                    <li><div><a href="india.html" style="text-decoration: red;">INDIA</a></div></li>
+                    <li><div><a href="sports.html" style="text-decoration: red;">SPORTS</a></div></li>
+                    <li><div><a href="brain.html" style="text-decoration: red;">BRAIN TEASERS</a></div></li>
+                    <li><div><a href="daily.html" style="text-decoration: red;">DAILY QUIZ</a></div></li>
+                </ul>
+            </td>
+            <td id="quiz">
+                <!-- Quiz questions will be dynamically generated here -->
+            </td>
+        </tr>
+    </table>
+    <div id="results" style="display: none;">
+        <h2>Results</h2>
+        <p id="score">Score: <span id="score-value"></span></p>
+        <div id="answers">
+            <!-- Incorrect answers will be dynamically generated here -->
+        </div>
+        <button onclick="restartQuiz()" id="restart" style="display: none;">Try Again</button>
+    </div>
+    <button onclick="showResults()" id="submit">Submit Answers</button>
+
+    <script>
+        // Array of 15 questions with options and correct answers
+        const questions = [
+            {question: 'How many brothers does Prince Hans of the Southern Isles have in Frozen?', options: ["6", "12", "10"], answer: "12"},
+            {question: 'What is the name of Wendy\'s dog in Peter Pan?', options: ["Nana", "Fluffy", "Tom"], answer:"Nana"},
+            {question: 'What is the name of Ariel and Prince Eric\'s daughter?', options: ["Celeste", "Melody", "Beatrice"], answer:"Nana"},
+            {question: 'Which of the following is not one of the seven dwarves?', options: ["Bashful", "Grumpy", "Jumpy"], answer:"Jumpy" },
+            {question: 'Name of Belle\'s father in \'Beauty and Beast\'', options: ["Philip", "Maurice", "Timothy"], answer:"Maurice"},
+            {question: 'Name of Snow White\'s prince', options: ["Florian", "Greg", "Eric"], answer:"Florian"},
+            {question: 'How long was Genie stuck in the lamp before Aladdin released him?', options: ["8000 years", "400 years", "10000 years"], answer:"10000 years"},
+            {question: 'Who was the first Disney princess?', options: ["Snow White", "Cinderella", "Ariel"], answer: "Snow White"  },
+            {question: 'What do Aladdin and his monkey Abu steal from the marketplace when you\'re first introduced to them in the movie?', options: ["Orange", "Loaf of bread", "Apple"], answer: 'Loaf of bread'},
+            {question: 'What is the name of Cinderella\'s evil stepsister?', options: ["Beatrice", "Daphne", "Anastasia"], answer:"Anastasia"},
+            {question: 'Which famous princess attends Elsa\'s coronation ceremony in Frozen?', options: ["Mulan", "Rapunzel", "Ariel"], answer:"Rapunzel"},
+            {question: 'What is the first Pixar movie?', options: ["Toy Story", "Finding Nemo", "Mickey Mouse"], answer:"Toy Story"},
+            {question: 'How many Disney theme parks are there at Walt Disney World?', options: ["3", "4", "5"], answer:"4" },
+            {question: 'Which Disney princess has the fewest lines?', options: ["Ariel", "Tiana", "Aurora"], answer:"Aurora" },
+            {question: 'What is the name of the tea cup from \"Beauty and the Beast\"?', options: ["Chip Potts", "Chippy Potts", "Candela"], answer:'Chip Potts'}
+        ];
+
+        // Function to shuffle questions array randomly
+        function shuffleQuestions(array) {
+            let currentIndex = array.length, randomIndex;
+            while (currentIndex !== 0) {
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex--;
+                [array[currentIndex], array[randomIndex]] = [
+                    array[randomIndex], array[currentIndex]
+                ];
+            }
+            return array;
+        }
+
+        // Function to build and initialize the quiz
+        function initializeQuiz() {
+            const shuffledQuestions = shuffleQuestions([...questions]).slice(0, 5); // Select 5 random questions
+            const quizContainer = document.getElementById('quiz');
+            shuffledQuestions.forEach((question, index) => {
+                const questionHTML = `
+                    <div class="quiz-question">
+                        <p>${index + 1}. ${question.question}</p>
+                        <input type="radio" name="question${index}" value="${question.options[0]}"> ${question.options[0]}<br>
+                        <input type="radio" name="question${index}" value="${question.options[1]}"> ${question.options[1]}<br>
+                        <input type="radio" name="question${index}" value="${question.options[2]}"> ${question.options[2]}<br>
+                    </div>
+                `;
+                quizContainer.innerHTML += questionHTML;
+            });
+        }
+
+        // Function to show quiz results
+        function showResults() {
+            const quizContainer = document.getElementById('quiz');
+            const resultsContainer = document.getElementById('results');
+            const answerContainers = quizContainer.getElementsByClassName('quiz-question');
+            const scoreContainer = document.getElementById('score-value');
+            const answersContainer = document.getElementById('answers');
+
+            let score = 0;
+            const incorrectAnswers = [];
+
+            const shuffledQuestions = shuffleQuestions([...questions]).slice(0, 5); // Select 5 random questions
+
+            shuffledQuestions.forEach((question, index) => {
+                const selectedOption = [...answerContainers[index].querySelectorAll('input[type="radio"]')].find(input => input.checked);
+                if (selectedOption) {
+                    const userAnswer = selectedOption.value;
+                    if (userAnswer === question.correctAnswer) {
+                        score++;
+                    } else {
+                        incorrectAnswers.push(`
+                            <p>Question ${index + 1}: ${question.question}</p>
+                            <p>Correct Answer: ${question.correctAnswer}</p>
+                        `);
+                    }
+                }
+            });
+
+            scoreContainer.textContent = score;
+            resultsContainer.style.display = 'block';
+            answersContainer.innerHTML = incorrectAnswers.join('');
+            document.getElementById('submit').style.display = 'none'; // Hide submit button
+            document.getElementById('restart').style.display = 'inline-block'; // Show try again button
+        }
+
+        // Function to restart the quiz
+        function restartQuiz() {
+            document.getElementById('quiz').innerHTML = ''; // Clear quiz questions
+            document.getElementById('results').style.display = 'none'; // Hide results
+            document.getElementById('submit').style.display = 'inline-block'; // Show submit button
+            initializeQuiz(); // Reinitialize quiz with new random questions
+        }
+
+        // Call function to initialize quiz when page loads
+        window.onload = function() {
+            initializeQuiz();
+        };
+    </script>
+
+    <h1 class="footer">
+        Help Us Improve!      
+        <a href="feedback.html" target="_blank" style="text-decoration: none;">Give your feedback here.</a><br><br>
+        OR<br>
+        <p style="text-decoration: none; font-size: 18px;"> <!-- Slightly increase other text size -->
+            Contact Us: 99999 88888<br>
+            Email-ID: <a href="mailto:quizwiz@org.ac.in">quizwiz@org.ac.in</a>
+        </p>
+    </h1>
+</body>
 </html>
