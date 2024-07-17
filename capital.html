@@ -22,8 +22,6 @@
     </style>
 </head>
 <body>
-    <!-- <img src="hat.jpg" class="image"> Remove or comment out the logo -->
-
     <h1 class="header">QUIZ WIZARD</h1>
     <div class="intro-text">
         <p>Welcome to this quiz of capitals and countries. All the best! Hope you have fun.</p>
@@ -65,7 +63,7 @@
             { question: "Minsk", options: ["Belarus", "Gambia", "India"], correctAnswer: "Belarus" },
             { question: "Nicosia", options: ["Georgia", "Cyprus", "Slovakia"], correctAnswer: "Cyprus" },
             { question: "Tbilisi", options: ["Hungary", "Georgia", "Morocco"], correctAnswer: "Georgia" },
-            { question: "Australia", options: ["Sydney", "Melbourne", "Canberra"], correctAnswer: "Canberra" },
+            { question: "Capital of Australia", options: ["Sydney", "Melbourne", "Canberra"], correctAnswer: "Canberra" },
             { question: "Kuala Lumpur", options: ["Malaysia", "Philippines", "Tonga"], correctAnswer: "Malaysia" },
             { question: "Stockholm", options: ["Sweden", "Cyprus", "Denmark"], correctAnswer: "Sweden" },
             { question: "Baku", options: ["Iraq", "Iran", "Azerbaijan"], correctAnswer: "Azerbaijan" },
@@ -120,7 +118,9 @@
             let score = 0;
             const incorrectAnswers = [];
 
-            questions.forEach((question, index) => {
+            const shuffledQuestions = shuffleQuestions([...questions]).slice(0, 5); // Select 5 random questions
+
+            shuffledQuestions.forEach((question, index) => {
                 const selectedOption = [...answerContainers[index].querySelectorAll('input[type="radio"]')].find(input => input.checked);
                 if (selectedOption) {
                     const userAnswer = selectedOption.value;
