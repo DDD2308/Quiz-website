@@ -5,93 +5,103 @@
     <title>Capital-Country Quiz</title>
     <link rel="stylesheet" href="quizpages.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        .quiz-container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
         .quiz-question {
-            margin-bottom: 20px;
-            background-color: #ffffff;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        .options label {
-            display: block;
-            cursor: pointer;
-            padding: 5px;
-            border: 1px solid #ccc;
-            margin-bottom: 5px;
-            border-radius: 3px;
+            margin-bottom: 10px;
         }
         .intro-text {
             color: black;
-            font-size: 16px;
             margin-bottom: 20px;
-        }
-        .results {
-            margin-top: 20px;
-            text-align: center;
-        }
-        .results h2 {
-            color: black;
-        }
-        .results p {
-            color: black;
         }
     </style>
 </head>
 <body>
-    <div class="quiz-container">
-        <img src='hat.jpg' class="image">
-        <h1 class="header">QUIZ WIZARD</h1>
-        <div class="intro-text">
-            <"Welcome to this quiz about capitals and countries. All the best! Hope you have fun.">
+    <img src="hat.jpg" class="image">
+    <h1 class="header">QUIZ WIZARD</h1>
+    <div class="intro-text">
+        <p>Welcome to this quiz of capitals and countries. All the best! Hope you have fun.</p>
+    </div>
+    <table>
+        <tr>
+            <td style="border-right: solid 1px black">
+                <ul style="list-style-type: none;">
+                    <li><div id="e1"><a href="home.html" style="text-decoration: red;">Home</a></div></li>
+                    <li><div><a href="sci.html" style="text-decoration: red;">SCIENCE</a></div></li>
+                    <li><div><a href="movies.html" style="text-decoration: red;">POP-STARS AND MOVIES</a></div></li>
+                    <li><div><a href="gk.html" style="text-decoration: red;">GK</a></div></li>
+                    <li><div><a href="disney.html" style="text-decoration: red;">DISNEY</a></div></li>
+                    <li><div><a href="capital.html" style="text-decoration: red;">CAPITAL-COUNTRY</a></div></li>
+                    <li><div><a href="india.html" style="text-decoration: red;">INDIA</a></div></li>
+                    <li><div><a href="sports.html" style="text-decoration: red;">SPORTS</a></div></li>
+                    <li><div><a href="brain.html" style="text-decoration: red;">BRAIN TEASERS</a></div></li>
+                    <li><div><a href="daily.html" style="text-decoration: red;">DAILY QUIZ</a></div></li>
+                </ul>
+            </td>
+            <td id="quiz">
+                <!-- Quiz questions will be dynamically generated here -->
+            </td>
+        </tr>
+    </table>
+    <div id="results" style="display: none;">
+        <h2>Results</h2>
+        <p id="score">Score: <span id="score-value"></span></p>
+        <div id="answers">
+            <!-- Incorrect answers will be dynamically generated here -->
         </div>
-        <div id="quiz">
-            <!-- Quiz questions and options will be dynamically generated here -->
-        </div>
-        <div class="results" id="results" style="display: none;">
-            <h2>Results</h2>
-            <p id="score">Score: <span id="score-value"></span></p>
-            <div id="answers">
-                <!-- Incorrect answers will be dynamically generated here -->
-            </div>
-        </div>
-        <button onclick="submitQuiz()" id="submit">Submit Answers</button>
+        <button onclick="restartQuiz()" id="restart">Try Again</button>
     </div>
 
     <script>
+        // Array of 15 questions with options and correct answers
         const questions = [
             { question: "Minsk", options: ["Belarus", "Gambia", "India"], correctAnswer: "Belarus" },
             { question: "Nicosia", options: ["Georgia", "Cyprus", "Slovakia"], correctAnswer: "Cyprus" },
             { question: "Tbilisi", options: ["Hungary", "Georgia", "Morocco"], correctAnswer: "Georgia" },
             { question: "Capital of Australia", options: ["Sydney", "Melbourne", "Canberra"], correctAnswer: "Canberra" },
-            { question: "Kuala Lumpur", options: ["Malaysia", "Philippines", "Tonga"], correctAnswer: "Malaysia" }
+            { question: "Kuala Lumpur", options: ["Malaysia", "Philippines", "Tonga"], correctAnswer: "Malaysia" },
+            { question: "Stockholm", options: ["Sweden", "Cyprus", "Denmark"], correctAnswer: "Sweden" },
+            { question: "Baku", options: ["Iraq", "Iran", "Azerbaijan"], correctAnswer: "Azerbaijan" },
+            { question: "Prague", options: ["Denmark", "Czech Republic", "Austria"], correctAnswer: "Czech Republic" },
+            { question: "Budapest", options: ["Hungary", "Georgia", "Siberia"], correctAnswer: "Hungary" },
+            { question: "Buenos Aires", options: ["Chile", "Argentina", "Brazil"], correctAnswer: "Argentina" },
+            { question: "Paris", options: ["Italy", "UK", "France"], correctAnswer: "France" },
+            { question: "Athens", options: ["Greece", "UK", "France"], correctAnswer: "Greece" },
+            { question: "Bucharest", options: ["Albania", "Romania", "Hungary"], correctAnswer: "Romania" },
+            { question: "Copenhagen", options: ["Denmark", "Czech Republic", "Austria"], correctAnswer: "Denmark" },
+            { question: "Vienna", options: ["Denmark", "Czech Republic", "Austria"], correctAnswer: "Austria" }
         ];
 
-        function buildQuiz() {
+        // Function to shuffle questions array randomly
+        function shuffleQuestions(array) {
+            let currentIndex = array.length, randomIndex;
+            while (currentIndex !== 0) {
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex--;
+                [array[currentIndex], array[randomIndex]] = [
+                    array[randomIndex], array[currentIndex]
+                ];
+            }
+            return array;
+        }
+
+        // Function to build and initialize the quiz
+        function initializeQuiz() {
+            const shuffledQuestions = shuffleQuestions([...questions]).slice(0, 5); // Select 5 random questions
             const quizContainer = document.getElementById('quiz');
-            questions.forEach((question, index) => {
+            shuffledQuestions.forEach((question, index) => {
                 const questionHTML = `
                     <div class="quiz-question">
                         <p>${index + 1}. ${question.question}</p>
-                        <div class="options">
-                            <label><input type="radio" name="question${index}" value="${question.options[0]}"> ${question.options[0]}</label>
-                            <label><input type="radio" name="question${index}" value="${question.options[1]}"> ${question.options[1]}</label>
-                            <label><input type="radio" name="question${index}" value="${question.options[2]}"> ${question.options[2]}</label>
-                        </div>
+                        <input type="radio" name="question${index}" value="${question.options[0]}"> ${question.options[0]}<br>
+                        <input type="radio" name="question${index}" value="${question.options[1]}"> ${question.options[1]}<br>
+                        <input type="radio" name="question${index}" value="${question.options[2]}"> ${question.options[2]}<br>
                     </div>
                 `;
                 quizContainer.innerHTML += questionHTML;
             });
         }
 
-        function submitQuiz() {
+        // Function to show quiz results
+        function showResults() {
             const quizContainer = document.getElementById('quiz');
             const resultsContainer = document.getElementById('results');
             const answerContainers = quizContainer.getElementsByClassName('quiz-question');
@@ -119,9 +129,22 @@
             scoreContainer.textContent = score;
             resultsContainer.style.display = 'block';
             answersContainer.innerHTML = incorrectAnswers.join('');
+            document.getElementById('submit').style.display = 'none'; // Hide submit button
+            document.getElementById('restart').style.display = 'inline-block'; // Show try again button
         }
 
-        buildQuiz();
+        // Function to restart the quiz
+        function restartQuiz() {
+            document.getElementById('quiz').innerHTML = ''; // Clear quiz questions
+            document.getElementById('results').style.display = 'none'; // Hide results
+            document.getElementById('submit').style.display = 'inline-block'; // Show submit button
+            initializeQuiz(); // Reinitialize quiz with new random questions
+        }
+
+        // Call function to initialize quiz when page loads
+        window.onload = function() {
+            initializeQuiz();
+        };
     </script>
 
     <h1 class="footer">
