@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
             { question: "Minsk", options: ["Belarus", "Gambia", "India"], answer: "Belarus" },
             { question: "Nicosia", options: ["Georgia", "Cyprus", "Slovakia"], answer: "Cyprus" },
             { question: "Tbilisi", options: ["Hungary", "Georgia", "Morocco"], answer: "Georgia" },
-            { question: "Capital of Australia", options: ["Sydney", "Melbourne", "Canberra"], answer: "Canberra" },
+            { question: "Australia", options: ["Sydney", "Melbourne", "Canberra"], answer: "Canberra" },
             { question: "Kuala Lumpur", options: ["Malaysia", "Philippines", "Tonga"], answer: "Malaysia" },
             { question: "Stockholm", options: ["Sweden", "Cyprus", "Denmark"], answer: "Sweden" },
             { question: "Baku", options: ["Iraq", "Iran", "Azerbaijan"], answer: "Azerbaijan" },
