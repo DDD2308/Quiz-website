@@ -125,6 +125,23 @@ document.addEventListener('DOMContentLoaded', () => {
         { question: 'Megan Markle was part of which famous show?', type: 'text', answer: 'Suits' },
         { question: 'First song of Selena Gomez', type: 'text', answer: '999' },
     ];
+    const indiaQuestions = [
+        { question: 'The famous \'Hornbill festival\' is celebrated in which of the following States of India? ', type: 'text', answer: 'Nagaland' },
+        { question: 'Kallol was the name of one of the most influential movements in which among the following literatures?', type: 'text', answer: 'Bangla' },
+        { question: 'Pandit Bhimsen Joshi is related to which form of art?', type: 'text', answer: 'Hindustani Vocalist' },
+        { question: 'Where is Nanda Devi National Sanctuary located?',  type: 'text', answer: 'Uttarakhand' },
+        { question: 'The ratio of width of our National Flag to its length is?', type: 'text', answer: '2:3' },
+        { question: 'National Tree of India', type: 'text', answer: 'Banyan' },
+        { question: 'Which is the largest Indian dam?', type: 'text', answer: 'Tehri' },
+        { question: 'Rabindranath Tagore\'s “Jana Gana Mana” has been adopted as India\'s National Anthem. How many stanza of the said song were adopted?', type: 'text', answer: 'Only First Stanza' },
+        { question: 'Which spice is known as \'Haldi\'?', type: 'text', answer: 'Turmeric' },
+        { question: 'What is the highest mountain peak located in India?',  type: 'text', answer: 'Kanchenjunga' },
+        { question: 'Which Indian city is known as \'City of Lakes\'?',type: 'text', answer: 'Udaipur' },
+        { question: 'What was the name of India\'s first satellite?', type: 'text', answer: 'Aryabhatta' },
+        { question: 'Which is the largest Indian state by population?', type: 'text', answer: 'Uttar pradesh' },
+        { question: 'What is known as the Spice Garden of India', type: 'text', answer: 'Kerala' },
+        { question: 'When was Constitution of India adopted?', type: 'text', answer: '1949' },
+    ];
     function showQuestion(question) {
         questionContainer.innerHTML = '';
         const questionElement = document.createElement('div');
