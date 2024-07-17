@@ -77,6 +77,9 @@
             { question: "Vienna", options: ["Denmark", "Czech Republic", "Austria"], correctAnswer: "Austria" }
         ];
 
+        let selectedQuestions = [];
+        let userAnswers = [];
+
         function shuffleArray(array) {
             for (let i = array.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
@@ -87,8 +90,8 @@
 
         function buildQuiz() {
             const quizContainer = document.getElementById('quiz');
-            const shuffledQuestions = shuffleArray(questions).slice(0, 5); // Shuffle and pick 5 random questions
-            shuffledQuestions.forEach((question, index) => {
+            selectedQuestions = shuffleArray([...questions]).slice(0, 5); // Shuffle and pick 5 random questions
+            selectedQuestions.forEach((question, index) => {
                 const questionHTML = `
                     <div class="quiz-question">
                         <p>${index + 1}. ${question.question}</p>
@@ -102,8 +105,6 @@
                 quizContainer.innerHTML += questionHTML;
             });
         }
-
-        let userAnswers = [];
 
         function selectAnswer(questionIndex, selectedOption) {
             userAnswers[questionIndex] = selectedOption;
@@ -125,8 +126,7 @@
             let score = 0;
             const incorrectAnswers = [];
 
-            const shuffledQuestions = shuffleArray(questions).slice(0, 5);
-            shuffledQuestions.forEach((question, index) => {
+            selectedQuestions.forEach((question, index) => {
                 const userAnswer = userAnswers[index];
                 if (userAnswer) {
                     if (userAnswer === question.correctAnswer) {
@@ -134,6 +134,7 @@
                     } else {
                         incorrectAnswers.push(`
                             <p>Question ${index + 1}: ${question.question}</p>
+                            <p>Your Answer: ${userAnswer}</p>
                             <p>Correct Answer: ${question.correctAnswer}</p>
                         `);
                     }
