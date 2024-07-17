@@ -40,16 +40,22 @@ document.addEventListener('DOMContentLoaded', () => {
         { question: 'Which is the nearest planet to Sun?', type: 'text', answer: 'Mercury' },
         { question: 'What is the thinnest layer of Earth?', type: 'text', answer: 'Crust' },
     ];
-    const geoQuestions = [
-        {
-            question: "What is the capital of France?",
-            answers: [
-                { text: "Paris", correct: true },
-                { text: "London", correct: false },
-                { text: "Berlin", correct: false },
-                { text: "Madrid", correct: false }
-            ]
-        },
+    const CapitalQuestions = [
+            { question: "Minsk", options: ["Belarus", "Gambia", "India"], answer: "Belarus" },
+            { question: "Nicosia", options: ["Georgia", "Cyprus", "Slovakia"], answer: "Cyprus" },
+            { question: "Tbilisi", options: ["Hungary", "Georgia", "Morocco"], answer: "Georgia" },
+            { question: "Capital of Australia", options: ["Sydney", "Melbourne", "Canberra"], answer: "Canberra" },
+            { question: "Kuala Lumpur", options: ["Malaysia", "Philippines", "Tonga"], answer: "Malaysia" },
+            { question: "Stockholm", options: ["Sweden", "Cyprus", "Denmark"], answer: "Sweden" },
+            { question: "Baku", options: ["Iraq", "Iran", "Azerbaijan"], answer: "Azerbaijan" },
+            { question: "Prague", options: ["Denmark", "Czech Republic", "Austria"], answer: "Czech Republic" },
+            { question: "Budapest", options: ["Hungary", "Georgia", "Siberia"], answer: "Hungary" },
+            { question: "Buenos Aires", options: ["Chile", "Argentina", "Brazil"], answer: "Argentina" },
+            { question: "Paris", options: ["Italy", "UK", "France"], answer: "France" },
+            { question: "Athens", options: ["Greece", "UK", "France"], answer: "Greece" },
+            { question: "Bucharest", options: ["Albania", "Romania", "Hungary"], answer: "Romania" },
+            { question: "Copenhagen", options: ["Denmark", "Czech Republic", "Austria"], answer: "Denmark" },
+            { question: "Vienna", options: ["Denmark", "Czech Republic", "Austria"], answer: "Austria" }
     ];
     function showQuestion(question) {
         questionContainer.innerHTML = '';
