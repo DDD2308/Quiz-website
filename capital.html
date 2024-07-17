@@ -1,79 +1,122 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <link rel="stylesheet" href="quizpages.css">
-    </head>
-    <body>
-        <img src='hat.jpg' class="image">
-        <h1 class="header">
-            QUIZ WIZARD
-        </h1>
-        <table>
-            <tr>
-                <td style="border-right: solid 1px black">
-                    <ul style="list-style-type: none;">
-                        <li><div id="e1"><a href="home.html" style="text-decoration: red;">Home</a></div></li>
-                            <li><div><a href="sci.html" style="text-decoration: red;">SCIENCE</a></div></li>
-                            <li><div><a href="movies.html" style="text-decoration: red;">POP-STARS AND MOVIES</a></div></li>
-                            <li><div><a href="gk.html" style="text-decoration: red;">GK</a></div></li>
-                            <li><div><a href="disney.html" style="text-decoration: red;">DISNEY</a></div></li>
-                            <li><div><a href="capital.html" style="text-decoration: red;">CAPITAL-COUNTRY</a></div></li>
-                            <li><div><a href="india.html" style="text-decoration: red;">INDIA</a></div></li>
-                            <li><div><a href="sports.html" style="text-decoration: red;">SPORTS</a></div></li>
-                            <li><div><a href="brain.html" style="text-decoration: red;">BRAIN TEASERS</a></div></li>
-                            <li><div><a href="daily.html" style="text-decoration: red;">DAILY QUIZ</a></div></li>
-                    </ul>
-                </td>
-                <td id="quiz">
-                    <script>
-                        const que=['Minsk<br>(a)Belarus  (b)Gambia  (c)India',
-                        'Nicosia<br>(a)Georgia  (b)Cyprus  (c)Slovakia    ',
-                        'Tbilisi<br>(a)Hungary  (b)Georgia  (c)Morocco   ' ,
-                        'Capital of Australia<br>(a)Sydney  (b)Melbourne  (c)Canberra' ,
-                        'Kuala Lumpur<br>(a)Malaysia  (b)Philippines  (c)Tonga',
-                        'Stockholm<br>(a)Sweden  (b)Cyprus  (c)Denmark',  
-                        'Baku<br>(a)Iraq  (b)Iran  (c)Azerbaijan',
-                        'Prague<br>(a)Denmark  (b)Czech Republic  (c)Austria',
-                        'Budapest<br>(a)Hungary  (b)Georgia  (c)Siberia   ',
-                        'Buenos Aires<br>(a)Chile (b)Argentina (c)Brazil',
-                        'Paris<br>(a)Italy  (b)UK  (c)France',
-                        'Athens<br>(a)Greece  (b)UK  (c)France',
-                        'Bucharest<br>(a)Albania  (b)Romania  (c)Hungary',
-                        'Copenhagen<br>(a)Denmark  (b)Czech Republic  (c)Austria',
-                        'Vienna<br>(a)Denmark  (b)Czech Republic  (c)Austria'
-                        ];
-                        const ans=['Belarus','Cyprus','Georgia','Canberra','Malaysia','Sweden','Azerbaijan',
-                        'Czech Republic','Hungary','Argentina','France','Greece','Romania','Denmark','Austria'];
-                        let display="";
-                        var x;
-                        for (let i = 0; i <5; i++) {
-                            x=Math.floor(Math.random()*15);
-                            document.write((i+1)+'.'+que[x]+'<br>');
-                            display= display.concat(ans[x]+'<br>');
-                        }
-                        function showanswers(){
-                            newdiv = document.createElement('p');
-                            newdiv.innerHTML=display;
-                            document.getElementById('quiz').appendChild(newdiv);
-                        }
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Capital-Country Quiz</title>
+    <link rel="stylesheet" href="quizpages.css">
+    <style>
+        .quiz-question {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <img src='hat.jpg' class="image">
+    <h1 class="header">QUIZ WIZARD</h1>
+    <table>
+        <tr>
+            <td style="border-right: solid 1px black">
+                <ul style="list-style-type: none;">
+                    <li><div id="e1"><a href="home.html" style="text-decoration: red;">Home</a></div></li>
+                    <li><div><a href="sci.html" style="text-decoration: red;">SCIENCE</a></div></li>
+                    <li><div><a href="movies.html" style="text-decoration: red;">POP-STARS AND MOVIES</a></div></li>
+                    <li><div><a href="gk.html" style="text-decoration: red;">GK</a></div></li>
+                    <li><div><a href="disney.html" style="text-decoration: red;">DISNEY</a></div></li>
+                    <li><div><a href="capital.html" style="text-decoration: red;">CAPITAL-COUNTRY</a></div></li>
+                    <li><div><a href="india.html" style="text-decoration: red;">INDIA</a></div></li>
+                    <li><div><a href="sports.html" style="text-decoration: red;">SPORTS</a></div></li>
+                    <li><div><a href="brain.html" style="text-decoration: red;">BRAIN TEASERS</a></div></li>
+                    <li><div><a href="daily.html" style="text-decoration: red;">DAILY QUIZ</a></div></li>
+                </ul>
+            </td>
+            <td id="quiz">
+                <!-- Quiz questions will be dynamically generated here -->
+            </td>
+        </tr>
+    </table>
+    <div id="results" style="display: none;">
+        <h2>Results</h2>
+        <p id="score">Score: <span id="score-value"></span></p>
+        <div id="answers">
+            <!-- Incorrect answers will be dynamically generated here -->
+        </div>
+    </div>
+    <button onclick="showResults()" id="submit">Submit Answers</button>
+    <script>
+        const questions = [
+            { question: "Minsk", options: ["Belarus", "Gambia", "India"], correctAnswer: "Belarus" },
+            { question: "Nicosia", options: ["Georgia", "Cyprus", "Slovakia"], correctAnswer: "Cyprus" },
+            { question: "Tbilisi", options: ["Hungary", "Georgia", "Morocco"], correctAnswer: "Georgia" },
+            { question: "Capital of Australia", options: ["Sydney", "Melbourne", "Canberra"], correctAnswer: "Canberra" },
+            { question: "Kuala Lumpur", options: ["Malaysia", "Philippines", "Tonga"], correctAnswer: "Malaysia" },
+            { question: "Stockholm", options: ["Sweden", "Cyprus", "Denmark"], correctAnswer: "Sweden" },
+            { question: "Baku", options: ["Iraq", "Iran", "Azerbaijan"], correctAnswer: "Azerbaijan" },
+            { question: "Prague", options: ["Denmark", "Czech Republic", "Austria"], correctAnswer: "Czech Republic" },
+            { question: "Budapest", options: ["Hungary", "Georgia", "Siberia"], correctAnswer: "Hungary" },
+            { question: "Buenos Aires", options: ["Chile", "Argentina", "Brazil"], correctAnswer: "Argentina" },
+            { question: "Paris", options: ["Italy", "UK", "France"], correctAnswer: "France" },
+            { question: "Athens", options: ["Greece", "UK", "France"], correctAnswer: "Greece" },
+            { question: "Bucharest", options: ["Albania", "Romania", "Hungary"], correctAnswer: "Romania" },
+            { question: "Copenhagen", options: ["Denmark", "Czech Republic", "Austria"], correctAnswer: "Denmark" },
+            { question: "Vienna", options: ["Denmark", "Czech Republic", "Austria"], correctAnswer: "Austria" }
+        ];
 
-                    </script>
-                    <br>
-                    Thought a Lot About it? Check your answers here.<br>
-                    <button onclick="showanswers()" id="answer">Show Answers</button>
-                </td>
-            </tr>
-        </table>
-        <h1 class="footer">
-            Help Us Improve!      
-            <a href="feedback.html" target="_blank" style="text-decoration: none;">Give your feedback here.
-            </a><br><br>
-            OR
-            <br>
-            <p style="text-decoration: none; font-size: 25px;">
-                Contact Us:  99999 88888<br>
-                Email-ID:  <a href = "mailto:quizwiz@org.ac.in">quizwiz@org.ac.in</a>
-            </p>
-        </h1>
-    </body>
+        function buildQuiz() {
+            const quizContainer = document.getElementById('quiz');
+            questions.forEach((question, index) => {
+                const questionHTML = `
+                    <div class="quiz-question">
+                        <p>${index + 1}. ${question.question}</p>
+                        <input type="radio" name="question${index}" value="${question.options[0]}"> ${question.options[0]}<br>
+                        <input type="radio" name="question${index}" value="${question.options[1]}"> ${question.options[1]}<br>
+                        <input type="radio" name="question${index}" value="${question.options[2]}"> ${question.options[2]}<br>
+                    </div>
+                `;
+                quizContainer.innerHTML += questionHTML;
+            });
+        }
+
+        function showResults() {
+            const quizContainer = document.getElementById('quiz');
+            const resultsContainer = document.getElementById('results');
+            const answerContainers = quizContainer.getElementsByClassName('quiz-question');
+            const scoreContainer = document.getElementById('score-value');
+            const answersContainer = document.getElementById('answers');
+
+            let score = 0;
+            const incorrectAnswers = [];
+
+            questions.forEach((question, index) => {
+                const selectedOption = [...answerContainers[index].querySelectorAll('input[type="radio"]')].find(input => input.checked);
+                if (selectedOption) {
+                    const userAnswer = selectedOption.value;
+                    if (userAnswer === question.correctAnswer) {
+                        score++;
+                    } else {
+                        incorrectAnswers.push(`
+                            <p>Question ${index + 1}: ${question.question}</p>
+                            <p>Correct Answer: ${question.correctAnswer}</p>
+                        `);
+                    }
+                }
+            });
+
+            scoreContainer.textContent = score;
+            resultsContainer.style.display = 'block';
+            answersContainer.innerHTML = incorrectAnswers.join('');
+        }
+
+        buildQuiz();
+    </script>
+
+    <h1 class="footer">
+        Help Us Improve!      
+        <a href="feedback.html" target="_blank" style="text-decoration: none;">Give your feedback here.</a><br><br>
+        OR<br>
+        <p style="text-decoration: none; font-size: 25px;">
+            Contact Us: 99999 88888<br>
+            Email-ID: <a href="mailto:quizwiz@org.ac.in">quizwiz@org.ac.in</a>
+        </p>
+    </h1>
+</body>
 </html>
