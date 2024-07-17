@@ -1,73 +1,85 @@
-body{
-    margin:2px;
-    background-color: #E6E6FA;
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    color: black;
 }
-.header{
-    background-color:#87CEEB;
-    color:#EB4B65;
-    font-family:fantasy ;
-    font-size: 70px;
-    margin-top: 0px;
-    padding-left: auto;
-    text-align: right;
-    padding-right: 125px;
-    padding-top: 10px;
-    padding-bottom: 5px;
-}
-.image{
-    height: 130px;
-    float: left;
-    margin-left: 10px;
-}
-div{
-    font-size: 20px;
-    background-color: #E6E6FA;
-    color:blue;
+
+.image {
+    display: block;
+    margin-left: auto;
     margin-right: auto;
-    width: 170px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    padding-left: 10px;
-    list-style-type: none;
+    width: 50%;
 }
-div:hover{
-    background-color:#87CEEB;
-    color:black;
-}
-.div2{
-    background-color: black;
-}
-.footer{
-    background-color:#87CEEB;
-    color:black;
-    font-family:Times New Roman;
-    font-size: 30px;
-    margin-top: 0px;
-    padding-left: auto;
+
+.header {
     text-align: center;
-    padding-top: 10px;
-    padding-bottom: 5px;
+    color: black;
 }
-#quiz{
-    font-size: 25px;
-    font-family: Times New Roman;
-    padding-left:20px;
-    text-align: justify;
-    margin-left: 20px;
+
+.footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 16px;
+    color: black;
 }
-#menu{
-    border-right: solid 1px black; background-color: #E6E6FA;
+
+.quiz-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
-#answer{
-    background-color: #87CEEB;
+
+.intro-text {
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: black;
+}
+
+.quiz-question {
+    margin-bottom: 20px;
+    background-color: #ffffff;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.options label {
+    display: block;
+    cursor: pointer;
+    padding: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 5px;
+    border-radius: 3px;
+}
+
+#submit {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
     border: none;
-    color:ghostwhite;
-    padding: 15px 32px;
+    border-radius: 5px;
+}
+
+#submit:hover {
+    background-color: #45a049;
+}
+
+.results {
     text-align: center;
-    text-decoration:solid;
-    display: inline-block;
-    font-size: 20px;
-    margin: 4px 2px;
-    cursor:pointer;
-    font-family: 'Times New Roman';
+    margin-top: 20px;
+}
+
+.results h2 {
+    color: black;
+}
+
+.results p {
+    color: black;
 }
