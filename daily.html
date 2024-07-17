@@ -19,23 +19,7 @@
     </style>
     <script>
         // Questions for the daily quiz
-        const questions = [
-            { question: "Who was the first Indian bowler to take all ten wickets in an inning?", options: ["Anil Kumble", "Javagal Srinath", "Harbhajan Singh", "Kapil Dev"], correctAnswer: "Anil Kumble" },
-            { question: "Which Hindu god is believed to have 6 heads?", options: ["Lord Shiva", "Lord Kartikey", "Lord Ganesha", "Lord Krishna"], correctAnswer: "Lord Kartikeya" },
-            { question: "Who was the first Prime Minister of USA?", options: ["Bill Clinton", "Abraham Lincoln", "Peyton Randolph", "James Monroe"], correctAnswer: "Peyton Randolph" },
-            { question: "Entomology is the science that studies", options: ["Human behavior ", "Population of world", "Minerals", "Insects"], correctAnswer: "Insects" },
-            { question: "Which of the following countries isn\'t a part of Gulf Cooperation?", options: ["Saudi Arabia", "Bahrain", "Kuwait", "Iraq"], correctAnswer: "Iraq" },
-            { question: "In which year United Nations was formed?", options: ["1934", "1954", "1947", "1945"], correctAnswer: "1945" },
-            { question: "In which series did Bodyline bowling become controversial?", options: ["Ashes,1932", "Border-Gavaskar Trophy,2007-08", "Pataudi Trophy,2011", "Freedom Trophy,1992"], correctAnswer: "Ashes,1932" },
-            { question: "Where is the International Court of Justice located?", options: ["Hague", "Geneva", "New York", "Paris"], correctAnswer: "Hague" },
-            { question: "Where are 2028 Olympics to be held?", options: ["London", "Paris", "Los Angeles", "Tokyo"], correctAnswer: "Los Angeles" },
-            { question: "As per Forest Act, cultivation of which of the following is a non-forest activity?", options: ["Mulberry", "Rubber", "Tea", "All of the above"], correctAnswer: "All of the above" },
-            { question: "Who was the queen of England when Royal Charter was granted to East India Company?", options: [" Queen Elizabeth 1 ", "Queen Victoria ", " Queen Anne", "Queen Mary 2"], correctAnswer: "Queen Elizabeth 1" },
-            { question: "Who is the first Indian wrestler to win a medal at Asian Games?", options: ["Babita Kumari", "Vinesh Phogat", "Sakshi Malik", "Kavita Devi"], correctAnswer: "Vinesh Phogat" },
-            { question: "Name the Indian tennis player who turned to Hollywood Filmmaker.", options: ["Leander Peas", "Mahesh Bhupathi", "Vijay Amritraj", "Ashok Amritraj"], correctAnswer: "Ashok Amritraj" },
-            { question: "Who is the writer of the book \'House of Cards\'?", options: ["Sudha Murthy", "Chetan Bhagat", "Arundhati Roy", "Shashi Deshpande"], correctAnswer: "Sudha Murthy" },
-            { question: "Which Indian state has most airports?", options: ["Maharashtra", "Gujarat", "Madhya Pradesh", "Rajasthan"], correctAnswer: "Gujarat" }
-        ];
+        
 
         let currentQuestions = [];
 
@@ -168,6 +152,190 @@
         <a href="feedback.html" target="_blank" style="text-decoration: none;">Give your feedback here.</a><br><br>
         OR<br>
         <p style="text-decoration: none; font-size: 14px;">
+            Contact Us: 99999 88888<br>
+            Email-ID: <a href="mailto:quizwiz@org.ac.in">quizwiz@org.ac.in</a>
+        </p>
+    </h1>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Capital-Country Quiz</title>
+    <link rel="stylesheet" href="quizpages.css">
+    <link rel="stylesheet" href="footerpages.css"> <!-- Include footer styles -->
+    <style>
+        body {
+            font-size: 16px; /* Adjust base font size */
+        }
+        .quiz-question {
+            margin-bottom: 10px;
+        }
+        .intro-text {
+            color: black;
+            margin-bottom: 20px;
+        }
+        .footer {
+            font-size: 14px; /* Decrease footer font size */
+        }
+    </style>
+</head>
+<body>
+    <h1 class="header">QUIZ WIZARD</h1>
+    <div class="intro-text">
+        <p>Welcome to this quiz of capitals and countries. All the best! Hope you have fun.</p>
+    </div>
+    <table>
+        <tr>
+            <td style="border-right: solid 1px black">
+                <ul style="list-style-type: none;">
+                    <li><div id="e1"><a href="home.html" style="text-decoration: red;">Home</a></div></li>
+                    <li><div><a href="sci.html" style="text-decoration: red;">SCIENCE</a></div></li>
+                    <li><div><a href="movies.html" style="text-decoration: red;">POP-STARS AND MOVIES</a></div></li>
+                    <li><div><a href="gk.html" style="text-decoration: red;">GK</a></div></li>
+                    <li><div><a href="disney.html" style="text-decoration: red;">DISNEY</a></div></li>
+                    <li><div><a href="capital.html" style="text-decoration: red;">CAPITAL-COUNTRY</a></div></li>
+                    <li><div><a href="india.html" style="text-decoration: red;">INDIA</a></div></li>
+                    <li><div><a href="sports.html" style="text-decoration: red;">SPORTS</a></div></li>
+                    <li><div><a href="brain.html" style="text-decoration: red;">BRAIN TEASERS</a></div></li>
+                    <li><div><a href="daily.html" style="text-decoration: red;">DAILY QUIZ</a></div></li>
+                </ul>
+            </td>
+            <td id="quiz">
+                <!-- Quiz questions will be dynamically generated here -->
+            </td>
+        </tr>
+    </table>
+    <div id="results" style="display: none;">
+        <h2>Results</h2>
+        <p id="score">Score: <span id="score-value"></span></p>
+        <div id="answers">
+            <!-- Incorrect answers will be dynamically generated here -->
+        </div>
+        <button onclick="restartQuiz()" id="restart" style="display: none;">Try Again</button>
+    </div>
+    <button onclick="showResults()" id="submit">Submit Answers</button>
+
+    <script>
+        // Array of 15 questions with options and correct answers
+        const questions = [
+            { question: "Who was the first Indian bowler to take all ten wickets in an inning?", options: ["Anil Kumble", "Harbhajan Singh", "Kapil Dev"], correctAnswer: "Anil Kumble" },
+            { question: "Which Hindu god is believed to have 6 heads?", options: ["Lord Shiva", "Lord Kartikey", "Lord Ganesha"], correctAnswer: "Lord Kartikeya" },
+            { question: "Who was the first Prime Minister of USA?", options: ["Bill Clinton", "Abraham Lincoln", "Peyton Randolph"], correctAnswer: "Peyton Randolph" },
+            { question: "Entomology is the science that studies", options: ["Human behavior ",  "Minerals", "Insects"], correctAnswer: "Insects" },
+            { question: "Which of the following countries isn\'t a part of Gulf Cooperation?", options: ["Saudi Arabia", "Bahrain",  "Iraq"], correctAnswer: "Iraq" },
+            { question: "In which year United Nations was formed?", options: ["1934",  "1947", "1945"], correctAnswer: "1945" },
+            { question: "In which series did Bodyline bowling become controversial?", options: ["Ashes,1932", "Border-Gavaskar Trophy,2007-08", "Pataudi Trophy,2011"], correctAnswer: "Ashes,1932" },
+            { question: "Where is the International Court of Justice located?", options: ["Hague", "Geneva",  "Paris"], correctAnswer: "Hague" },
+            { question: "Where are 2028 Olympics to be held?", options: ["London", "Paris", "Los Angeles"], correctAnswer: "Los Angeles" },
+            { question: "As per Forest Act, cultivation of which of the following is a non-forest activity?", options: ["Mulberry", "Rubber", "All of the above"], correctAnswer: "All of the above" },
+            { question: "Who was the queen of England when Royal Charter was granted to East India Company?", options: [" Queen Elizabeth 1 ", "Queen Victoria ",  "Queen Mary 2"], correctAnswer: "Queen Elizabeth 1" },
+            { question: "Who is the first Indian wrestler to win a medal at Asian Games?", options: ["Babita Kumari", "Vinesh Phogat", "Sakshi Malik", ], correctAnswer: "Vinesh Phogat" },
+            { question: "Name the Indian tennis player who turned to Hollywood Filmmaker.", options: [ "Mahesh Bhupathi", "Vijay Amritraj", "Ashok Amritraj"], correctAnswer: "Ashok Amritraj" },
+            { question: "Who is the writer of the book \'House of Cards\'?", options: ["Sudha Murthy", "Chetan Bhagat", "Arundhati Roy", ], correctAnswer: "Sudha Murthy" },
+            { question: "Which Indian state has most airports?", options: ["Maharashtra", "Gujarat", "Rajasthan"], correctAnswer: "Gujarat" }
+        ];
+
+        // Function to shuffle questions array randomly
+        function shuffleQuestions(array) {
+            let currentIndex = array.length, randomIndex;
+            while (currentIndex !== 0) {
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex--;
+                [array[currentIndex], array[randomIndex]] = [
+                    array[randomIndex], array[currentIndex]
+                ];
+            }
+            return array;
+        }
+
+        // Function to build and initialize the quiz
+        function initializeQuiz() {
+            const shuffledQuestions = shuffleQuestions([...questions]).slice(0, 5); // Select 5 random questions
+            const quizContainer = document.getElementById('quiz');
+            shuffledQuestions.forEach((question, index) => {
+                const questionHTML = `
+                    <div class="quiz-question">
+                        <p>${index + 1}. ${question.question}</p>
+                        <input type="radio" name="question${index}" value="${question.options[0]}"> ${question.options[0]}<br>
+                        <input type="radio" name="question${index}" value="${question.options[1]}"> ${question.options[1]}<br>
+                        <input type="radio" name="question${index}" value="${question.options[2]}"> ${question.options[2]}<br>
+                    </div>
+                `;
+                quizContainer.innerHTML += questionHTML;
+            });
+        }
+
+        // Function to show quiz results
+        function showResults() {
+            const quizContainer = document.getElementById('quiz');
+            const resultsContainer = document.getElementById('results');
+            const answerContainers = quizContainer.getElementsByClassName('quiz-question');
+            const scoreContainer = document.getElementById('score-value');
+            const answersContainer = document.getElementById('answers');
+
+            let score = 0;
+            const incorrectAnswers = [];
+
+            const shuffledQuestions = shuffleQuestions([...questions]).slice(0, 5); // Select 5 random questions
+
+            shuffledQuestions.forEach((question, index) => {
+                const selectedOption = [...answerContainers[index].querySelectorAll('input[type="radio"]')].find(input => input.checked);
+                if (selectedOption) {
+                    const userAnswer = selectedOption.value;
+                    if (userAnswer === question.correctAnswer) {
+                        score++;
+                    } else {
+                        incorrectAnswers.push(`
+                            <p>Question ${index + 1}: ${question.question}</p>
+                            <p>Correct Answer: ${question.correctAnswer}</p>
+                        `);
+                    }
+                }
+            });
+
+            scoreContainer.textContent = score;
+            resultsContainer.style.display = 'block';
+            answersContainer.innerHTML = incorrectAnswers.join('');
+            document.getElementById('submit').style.display = 'none'; // Hide submit button
+            document.getElementById('restart').style.display = 'inline-block'; // Show try again button
+        }
+
+        // Function to restart the quiz
+        function restartQuiz() {
+            document.getElementById('quiz').innerHTML = ''; // Clear quiz questions
+            document.getElementById('results').style.display = 'none'; // Hide results
+            document.getElementById('submit').style.display = 'inline-block'; // Show submit button
+            initializeQuiz(); // Reinitialize quiz with new random questions
+        }
+
+        // Call function to initialize quiz when page loads
+        window.onload = function() {
+            initializeQuiz();
+        };
+    </script>
+
+    <h1 class="footer">
+        Help Us Improve!      
+        <a href="feedback.html" target="_blank" style="text-decoration: none;">Give your feedback here.</a><br><br>
+        OR<br>
+        <p style="text-decoration: none; font-size: 18px;"> <!-- Slightly increase other text size -->
             Contact Us: 99999 88888<br>
             Email-ID: <a href="mailto:quizwiz@org.ac.in">quizwiz@org.ac.in</a>
         </p>
