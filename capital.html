@@ -8,21 +8,15 @@
         .quiz-question {
             margin-bottom: 20px;
         }
-        .options div {
+        .options label {
+            display: block;
             cursor: pointer;
             padding: 5px;
-            margin: 5px;
             border: 1px solid #ccc;
-            display: inline-block;
+            margin-bottom: 5px;
         }
-        .options div.selected {
-            background-color: lightblue;
-        }
-        .options div.correct {
-            background-color: lightgreen;
-        }
-        .options div.incorrect {
-            background-color: lightcoral;
+        .options label:hover {
+            background-color: #f0f0f0;
         }
     </style>
 </head>
@@ -78,7 +72,7 @@
         ];
 
         let selectedQuestions = [];
-        let userAnswers = [];
+        let userAnswers = {};
 
         function shuffleArray(array) {
             for (let i = array.length - 1; i > 0; i--) {
@@ -98,7 +92,10 @@
                         <p>${index + 1}. ${question.question}</p>
                         <div class="options">
                             ${question.options.map(option => `
-                                <div onclick="selectAnswer(${index}, '${option}')">${option}</div>
+                                <label>
+                                    <input type="radio" name="question${index}" value="${option}" onclick="selectAnswer(${index}, '${option}')">
+                                    ${option}
+                                </label>
                             `).join('')}
                         </div>
                     </div>
@@ -109,17 +106,9 @@
 
         function selectAnswer(questionIndex, selectedOption) {
             userAnswers[questionIndex] = selectedOption;
-            const quizQuestion = document.querySelectorAll('.quiz-question')[questionIndex];
-            quizQuestion.querySelectorAll('.options div').forEach(div => {
-                div.classList.remove('selected');
-                if (div.textContent === selectedOption) {
-                    div.classList.add('selected');
-                }
-            });
         }
 
         function submitQuiz() {
-            const quizContainer = document.getElementById('quiz');
             const resultsContainer = document.getElementById('results');
             const scoreContainer = document.getElementById('score-value');
             const answersContainer = document.getElementById('answers');
@@ -147,7 +136,7 @@
             scoreContainer.textContent = score;
             resultsContainer.style.display = 'block';
             answersContainer.innerHTML = incorrectAnswers.join('');
-            quizContainer.style.display = 'none'; // Hide quiz after submission
+            document.getElementById('quiz').style.display = 'none'; // Hide quiz after submission
         }
 
         buildQuiz();
