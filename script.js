@@ -91,6 +91,23 @@ document.addEventListener('DOMContentLoaded', () => {
             {question: 'Which Disney princess has the fewest lines?', options: ["Ariel", "Tiana", "Aurora"], answer:"Aurora" },
             {question: 'What is the name of the tea cup from \"Beauty and the Beast\"?', options: ["Chip Potts", "Chippy Potts", "Candela"], answer:'Chip Potts'}
         ];
+    const gkquestions = [
+            {question: 'The newly constructed Maharishi Valmiki International Airport is located in?, options: ["Ayodhya", "Vrindavan", "Gorakhpur"], answer: "Ayodhya"},
+            {question: 'India made its first-ever payment in rupees for crude oil purchased from?', options: ["UAE", "Qatar", "Saudi Arabia"], answer:"UAE"},
+            {question: 'Which country had recently asked India to withdraw its military personnel from its territory?', options: ["Mauritius", "Sri Lanka", "Maldives"], answer:"Maldives"},
+            {question: 'National Consumer Rights Day in India is observed on.', options: ["24 Dec", "28 Dec", "4 jan"], answer:"24 Dec" },
+            {question: 'In the \'best-performing states\' category in Swachh Survekshan Awards 2023 which state bagged the top spot?', options: ["Maharashtra", "Madhaya Pradesh", "Uttar Pradesh"], answer:"Maharashtra"},
+            {question: 'Who became the first Indian Woman Arjuna Awardee for Equestrian Sports', options: ["Sudipti Hajela", "Parul Chaudhary", "Divyakriti Singh"], answer:"Divyakriti Singh"},
+            {question: 'Who has been awarded with the Bharat Ratna Award in 2024', options: ["Rammanohar Lohiya ", "Karpoori Thakur ", "Kanshi Ram"], answer:"Karpoori Thakur "},
+            {question: 'Bag-Less School initiative, recently seen in the news, is introduced by which state?', options: ["Uttar Pradesh", "Madhya Pradesh", "Bihar"], answer: "Madhya Pradesh"  },
+            {question: 'Which is the fifth country to land on the Moon successfully', options: ["India", "Japan", "Germany"], answer: 'Japan'},
+            {question: 'What is the name of the telescope recently launched to study early galaxies?', options: ["James Webb Space Telescope", "Hubble Space Telescope", "Kepler Space Telescope"], answer:"James Webb Space Telescope"},
+            {question: 'What is the largest supercomputer in the world as of January 2024?', options: ["Fugaku", "Frontier", "Summit"], answer:"Frontier"},
+            {question: 'Recently, which album won the \'Best Global Music Album\' award at theGrammy Awards 2024?', options: ["The Record", "This Moment", "World Record"], answer:"This moment"},
+            {question: 'What is the primary objective of SAMARTH scheme, recently seen in the news?', options: ["Providing scholarship to rural students for higher education", "Providing assistance to farmers", "Providing assistance to the MSMEs"], answer:"Providing assistance to the MSMEs" },
+            {question: 'Which state became the first Indian state to buy land in Kashmir?', options: ["Gujarat", "Goa", "Maharashtra"], answer:"Maharashtra" },
+            {question: 'Tamas Sulyok, who was seen in the news, became a new president of which country?', options: ["Hungary", "Poland", "Italy"], answer:'Hungary'}
+        ];
     function showQuestion(question) {
         questionContainer.innerHTML = '';
         const questionElement = document.createElement('div');
