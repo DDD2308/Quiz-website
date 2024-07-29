@@ -119,11 +119,28 @@ div:hover{
     width: 100%;
     height: auto;
 }
-
-.card p {
-    padding: 10px;
-    text-align: center;
+.card h2 {
+    margin: 10px 0;
 }
+
+.card h2 a {
+    text-decoration: none;
+    color: #000;
+}
+
+.card span {
+    padding: 10px;
+}
+
+.know-more {
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #8B0000;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
 .footer{
     background-color:#87CEEB;
     color:black;
